@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English P.5 Term 1 - Fun Learning 16 Weeks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00796b; /* Teal */
+            --primary-accent: #f4511e; /* Deep Orange */
+            --primary-orange: #ff9800;
+            --soft-bg: #e0f2f1; /* Very light teal */
+            --font-main: 'Mali', cursive;
+            --success-green: #2e7d32;
+            --header-color: #004d40;
+            --card-border: #26a69a;
+            --card-bg: #b2dfdb;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--soft-bg);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(180deg, #b2dfdb, #e0f2f1);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 6px dashed var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container { max-width: 1000px; margin: 20px auto; padding: 0 15px; }
+
+        .score-panel {
+            background: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            border: 3px solid var(--primary-color);
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 10px;
+        }
+
+        .author-text {
+            margin: 8px 0 0 0;
+            font-size: 0.95rem;
+            color: #424242;
+            font-weight: bold;
+        }
+
+        .week-selector {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding: 10px 5px;
+            margin-bottom: 20px;
+            scrollbar-width: thin;
+        }
+
+        .week-btn {
+            background: white;
+            border: 2px solid var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            white-space: nowrap;
+            cursor: pointer;
+            font-family: var(--font-main);
+            transition: 0.3s;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .week-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 3px solid var(--primary-color);
+        }
+
+        .unit-tag {
+            background: var(--primary-accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .lesson-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .lesson-box {
+            background: #ffffff;
+            border: 2px solid var(--card-border);
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 120px;
+        }
+
+        .lesson-box:hover { transform: translateY(-5px); background: var(--card-bg); }
+        .lesson-box.viewed { background: #fff3e0; border-color: var(--primary-orange); }
+
+        .big-text { font-size: 1.3rem; display: block; margin-bottom: 5px; color: var(--header-color); font-weight: bold; line-height: 1.3; }
+        .sub-text { font-size: 0.85rem; color: #555; line-height: 1.2; }
+
+        .quiz-area {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px dashed #ddd;
+        }
+
+        .start-btn {
+            background: var(--success-green);
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: var(--font-main);
+            box-shadow: 0 4px 0 #1b5e20;
+        }
+
+        .start-btn:disabled { background: #ccc; box-shadow: 0 4px 0 #999; cursor: not-allowed; }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 25px;
+            text-align: center;
+        }
+
+        .option-btn {
+            background: #f5f5f5;
+            border: 2px solid #ddd;
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-family: var(--font-main);
+            cursor: pointer;
+        }
+
+        .option-btn:hover { background: var(--soft-bg); border-color: var(--primary-color); }
+
+        .progress-bar {
+            background: #eee;
+            height: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-inner {
+            background: var(--success-green);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 style="margin:0; color: var(--header-color);">🇬🇧 Fun English P.5 (เทอม 1)</h1>
+    <p class="author-text">พัฒนาบทเรียนโดย อาจารย์วุฒิชัย (Ajarn Wutthichai)</p>
+    <div class="score-panel">⭐ คะแนนสะสม: <span id="userScore">0</span></div>
+</header>
+
+<div class="container">
+    <div class="week-selector" id="weekBar"></div>
+
+    <div class="content-card">
+        <div id="unitDisplay" class="unit-tag"></div>
+        <h2 id="chapterTitle">กำลังโหลด...</h2>
+        <p id="chapterDesc" style="color: #666;"></p>
+        
+        <div class="lesson-grid" id="lessonItems"></div>
+
+        <div class="quiz-area">
+            <button id="quizBtn" class="start-btn" onclick="startQuiz()" disabled>📝 ทำแบบทดสอบ</button>
+            <p id="quizHint" style="font-size: 0.9rem; color: #d32f2f; margin-top: 10px;">กรุณาคลิกฟังคำศัพท์ให้ครบทุกคำก่อนเริ่มทำแบบทดสอบครับ</p>
+        </div>
+    </div>
+</div>
+
+<div id="quizModal" class="modal">
+    <div class="modal-content">
+        <div class="progress-bar"><div id="progBar" class="progress-inner"></div></div>
+        <h3 id="qNum" style="color: var(--primary-accent);"></h3>
+        <h2 id="qText" style="white-space: pre-line;"></h2>
+        <div id="options"></div>
+    </div>
+</div>
+
+<script>
+    const data = [
+        {
+            unit: "Unit 1: My Responsibilities",
+            title: "สัปดาห์ที่ 1: งานบ้านของฉัน (Chores)",
+            desc: "อยู่บ้านเราช่วยทำอะไรได้บ้าง?",
+            items: [
+                {t:"Sweep 🧹", s:"Sweep the floor กวาดพื้น"}, {t:"Mop 🪣", s:"Mop the floor ถูพื้น"}, 
+                {t:"Dishes 🍽️", s:"Wash the dishes ล้างจาน"}, {t:"Laundry 🧺", s:"Do the laundry ซักผ้า"},
+                {t:"Iron 👔", s:"Iron the clothes รีดผ้า"}, {t:"Dog 🐕", s:"Feed the dog ให้อาหารสุนัข"}, 
+                {t:"Rubbish 🗑️", s:"Take out the rubbish ทิ้งขยะ"}, {t:"Bed 🛏️", s:"Make the bed จัดเตียง"},
+                {t:"Plants 🪴", s:"Water the plants รดน้ำต้นไม้"}, {t:"Window 🪟", s:"Clean the window เช็ดหน้าต่าง"}
+            ],
+            quiz: [
+                {q: "การ 'ล้างจาน' ภาษาอังกฤษใช้คำว่าอะไร?", a: "Wash the dishes", o: ["Do the laundry", "Wash the dishes", "Mop the floor", "Make the bed"]},
+                {q: "ถ้าขยะเต็มถัง เราต้องทำหน้าที่อะไร?", a: "Take out the rubbish", o: ["Feed the dog", "Take out the rubbish", "Sweep the floor", "Water the plants"]},
+                {q: "คำว่า 'Iron the clothes' หมายถึงอะไร?", a: "รีดผ้า", o: ["ซักผ้า", "พับผ้า", "รีดผ้า", "ตากผ้า"]},
+                {q: "ไม้ถูพื้น (Mop) ใช้ทำกิจกรรมใด?", a: "Mop the floor", o: ["Sweep the floor", "Mop the floor", "Clean the window", "Make the bed"]},
+                {q: "ถ้าต้นไม้เหี่ยวเฉา เราต้องทำหน้าที่อะไร?", a: "Water the plants", o: ["Feed the dog", "Do the laundry", "Water the plants", "Wash the dishes"]}
+            ]
+        },
+        {
+            unit: "Unit 1: My Responsibilities",
+            title: "สัปดาห์ที่ 2: บอกความถี่ (Adverbs of Frequency)",
+            desc: "คุณทำงานบ้านบ่อยแค่ไหน?",
+            items: [
+                {t:"Always 💯", s:"Always เสมอ (100%)"}, {t:"Usually 🔄", s:"Usually เป็นประจำ (80%)"}, 
+                {t:"Often 🔁", s:"Often บ่อยๆ (70%)"}, {t:"Sometimes ⚖️", s:"Sometimes บางครั้ง (50%)"},
+                {t:"Rarely 🤏", s:"Rarely แทบจะไม่ (10%)"}, {t:"Never ❌", s:"Never ไม่เคยเลย (0%)"}, 
+                {t:"Every day 📆", s:"Every day ทุกๆ วัน"}, {t:"Once 1️⃣", s:"Once a week สัปดาห์ละ 1 ครั้ง"},
+                {t:"Twice 2️⃣", s:"Twice a week สัปดาห์ละ 2 ครั้ง"}, {t:"How often? ❓", s:"How often บ่อยแค่ไหน"}
+            ],
+            quiz: [
+                {q: "คำใดหมายถึง 'ไม่เคยทำเลย' (0%)?", a: "Never", o: ["Always", "Sometimes", "Never", "Often"]},
+                {q: "ถ้าต้องการถามว่า 'คุณทำสิ่งนี้บ่อยแค่ไหน?' ต้องใช้คำถามใด?", a: "How often?", o: ["How much?", "How often?", "How many?", "How long?"]},
+                {q: "คำใดมีความหมายว่า 'แทบจะไม่เคยทำ'?", a: "Rarely", o: ["Always", "Usually", "Sometimes", "Rarely"]},
+                {q: "คำว่า 'สัปดาห์ละสองครั้ง' พูดว่าอย่างไร?", a: "Twice a week", o: ["Once a week", "Twice a week", "Every day", "Three times a week"]},
+                {q: "ถ้าฉันล้างจานทุกวันเลย (100%) จะใช้คำใด?", a: "Always", o: ["Sometimes", "Never", "Rarely", "Always"]}
+            ]
+        },
+        {
+            unit: "Unit 2: At the Supermarket",
+            title: "สัปดาห์ที่ 3: อาหารและวัตถุดิบ",
+            desc: "ไปซื้อของที่ซูเปอร์มาร์เก็ตกัน",
+            items: [
+                {t:"Beef 🥩", s:"Beef เนื้อวัว"}, {t:"Pork 🥓", s:"Pork เนื้อหมู"}, 
+                {t:"Sausage 🌭", s:"Sausage ไส้กรอก"}, {t:"Cabbage 🥬", s:"Cabbage กะหล่ำปลี"},
+                {t:"Cucumber 🥒", s:"Cucumber แตงกวา"}, {t:"Onion 🧅", s:"Onion หัวหอม"}, 
+                {t:"Garlic 🧄", s:"Garlic กระเทียม"}, {t:"Grape 🍇", s:"Grape องุ่น"},
+                {t:"Watermelon 🍉", s:"Watermelon แตงโม"}, {t:"Meat 🥩", s:"Meat เนื้อสัตว์"}
+            ],
+            quiz: [
+                {q: "คำว่า 'เนื้อหมู' ภาษาอังกฤษคือคำว่าอะไร?", a: "Pork", o: ["Beef", "Meat", "Pork", "Sausage"]},
+                {q: "ผักที่มีลักษณะเป็นหัว กลมๆ เวลาปอกแล้วมักจะแสบตา คืออะไร?", a: "Onion (หัวหอม)", o: ["Garlic", "Cabbage", "Cucumber", "Onion (หัวหอม)"]},
+                {q: "กระเทียม ที่ใช้ใส่ในอาหารเพื่อความหอม คือคำใด?", a: "Garlic", o: ["Onion", "Garlic", "Cucumber", "Cabbage"]},
+                {q: "แตงโม ภาษาอังกฤษเรียกว่าอะไร?", a: "Watermelon", o: ["Grape", "Apple", "Watermelon", "Banana"]},
+                {q: "ไส้กรอก ภาษาอังกฤษเรียกว่าอะไร?", a: "Sausage", o: ["Pork", "Beef", "Sausage", "Meat"]}
+            ]
+        },
+        {
+            unit: "Unit 2: At the Supermarket",
+            title: "สัปดาห์ที่ 4: การถามปริมาณ",
+            desc: "How much หรือ How many?",
+            items: [
+                {t:"How much? ❓", s:"How much ใช้ถามปริมาณนามนับไม่ได้"}, {t:"How many? ❓", s:"How many ใช้ถามจำนวนนามนับได้"}, 
+                {t:"A lot 📦", s:"A lot of... มีจำนวนมาก"}, {t:"A little 🤏", s:"A little... มีเล็กน้อย (นับไม่ได้)"},
+                {t:"A few 🖐️", s:"A few... มี 2-3 ชิ้น (นับได้)"}, {t:"Sugar 🧂", s:"Sugar น้ำตาล (นับไม่ได้)"}, 
+                {t:"Salt 🧂", s:"Salt เกลือ (นับไม่ได้)"}, {t:"Rice 🍚", s:"Rice ข้าว (นับไม่ได้)"},
+                {t:"Apples 🍎", s:"Apples แอปเปิล (นับได้)"}, {t:"Eggs 🥚", s:"Eggs ไข่ (นับได้)"}
+            ],
+            quiz: [
+                {q: "ถ้าต้องการถามจำนวน 'ไข่' (Eggs) ซึ่งนับได้ ต้องใช้คำถามใด?", a: "How many", o: ["How much", "How many", "How often", "How long"]},
+                {q: "ถ้าต้องการถามปริมาณ 'น้ำตาล' (Sugar) ซึ่งนับไม่ได้ ต้องใช้คำถามใด?", a: "How much", o: ["How many", "How much", "How big", "How old"]},
+                {q: "คำว่า 'มีข้าวเล็กน้อย' ข้าวเป็นนามนับไม่ได้ ต้องใช้คำใด?", a: "A little rice", o: ["A few rice", "A little rice", "Many rice", "A lot of rice"]},
+                {q: "คำว่า 'มีแอปเปิลอยู่ 2-3 ลูก' แอปเปิลนับได้ ต้องใช้คำใด?", a: "A few apples", o: ["A little apples", "Much apples", "A few apples", "Any apples"]},
+                {q: "เกลือ (Salt) และ ข้าว (Rice) จัดเป็นคำนามประเภทใด?", a: "Uncountable (นับไม่ได้)", o: ["Countable (นับได้)", "Uncountable (นับไม่ได้)", "นามเฉพาะ", "กริยา"]}
+            ]
+        },
+        {
+            unit: "Unit 2: At the Supermarket",
+            title: "สัปดาห์ที่ 5: บรรจุภัณฑ์ต่างๆ (Containers)",
+            desc: "ของนับไม่ได้ ใส่ภาชนะก็นับได้นะ!",
+            items: [
+                {t:"Bottle 🍼", s:"A bottle of water น้ำหนึ่งขวด"}, {t:"Cup ☕", s:"A cup of tea ชาหนึ่งถ้วย"}, 
+                {t:"Glass 🥛", s:"A glass of milk นมหนึ่งแก้ว"}, {t:"Bowl 🥣", s:"A bowl of soup ซุปหนึ่งชาม"},
+                {t:"Slice 🍞", s:"A slice of bread ขนมปังหนึ่งแผ่น"}, {t:"Piece 🍰", s:"A piece of cake เค้กหนึ่งชิ้น"}, 
+                {t:"Packet 🍟", s:"A packet of chips มันฝรั่งทอดหนึ่งห่อ"}, {t:"Can 🥫", s:"A can of cola โคล่าหนึ่งกระป๋อง"},
+                {t:"Box 📦", s:"A box of cereal ซีเรียลหนึ่งกล่อง"}, {t:"Jar 🍯", s:"A jar of jam แยมหนึ่งโหล"}
+            ],
+            quiz: [
+                {q: "ถ้าเราจะซื้อ 'น้ำเปล่า' เรามักจะซื้อเป็นบรรจุภัณฑ์ใด?", a: "A bottle of water (ขวด)", o: ["A bowl of water", "A slice of water", "A bottle of water (ขวด)", "A piece of water"]},
+                {q: "ขนมปังแผ่นตัดบางๆ ภาษาอังกฤษใช้คำว่าอะไร?", a: "A slice of bread", o: ["A bowl of bread", "A glass of bread", "A slice of bread", "A can of bread"]},
+                {q: "เค้กที่ถูกตัดแบ่งมา 1 ชิ้น เรียกว่าอะไร?", a: "A piece of cake", o: ["A packet of cake", "A jar of cake", "A piece of cake", "A box of cake"]},
+                {q: "น้ำอัดลม (Cola) มักจะบรรจุอยู่ในอะไร?", a: "A can of cola (กระป๋อง)", o: ["A slice of cola", "A bowl of cola", "A piece of cola", "A can of cola (กระป๋อง)"]},
+                {q: "ซุป 1 ถ้วย (ชาม) ภาษาอังกฤษเรียกว่าอะไร?", a: "A bowl of soup", o: ["A plate of soup", "A bowl of soup", "A glass of soup", "A jar of soup"]}
+            ]
+        },
+        {
+            unit: "Unit 3: Health & Illness",
+            title: "สัปดาห์ที่ 6: อาการเจ็บป่วยที่ต้องไปหาหมอ",
+            desc: "อวัยวะไหนเจ็บ ก็เติม -ache เข้าไป",
+            items: [
+                {t:"Headache 🤕", s:"Headache ปวดหัว"}, {t:"Toothache 🦷", s:"Toothache ปวดฟัน"}, 
+                {t:"Earache 👂", s:"Earache ปวดหู"}, {t:"Backache 🔙", s:"Backache ปวดหลัง"},
+                {t:"Stomachache 🤢", s:"Stomachache ปวดท้อง"}, {t:"Sore throat 🧣", s:"Sore throat เจ็บคอ"}, 
+                {t:"Cold 🤧", s:"Cold เป็นหวัด"}, {t:"Fever 🥵", s:"Fever เป็นไข้"},
+                {t:"Cough 🗣️", s:"Cough ไอ"}, {t:"Broken arm 🦴", s:"Broken arm แขนหัก"}
+            ],
+            quiz: [
+                {q: "ถ้าคุณปู่ยกของหนักเกินไป ท่านอาจจะมีอาการอะไร?", a: "Backache (ปวดหลัง)", o: ["Headache", "Earache", "Backache (ปวดหลัง)", "Toothache"]},
+                {q: "ถ้าฟังเพลงเสียงดังมากๆ เป็นเวลานาน อาจทำให้เกิดอาการใด?", a: "Earache (ปวดหู)", o: ["Toothache", "Stomachache", "Backache", "Earache (ปวดหู)"]},
+                {q: "ถ้าหกล้มรุนแรงจนกระดูกที่แขนมีปัญหา เรียกว่าอาการใด?", a: "Broken arm (แขนหัก)", o: ["Fever", "Broken arm (แขนหัก)", "Cold", "Cough"]},
+                {q: "อาการระคายเคืองที่คอ กลืนน้ำลายลำบาก คืออาการใด?", a: "Sore throat (เจ็บคอ)", o: ["Headache", "Sore throat (เจ็บคอ)", "Toothache", "Backache"]},
+                {q: "คำว่า 'อาการไอ' ภาษาอังกฤษคือข้อใด?", a: "Cough", o: ["Cold", "Fever", "Cough", "Earache"]}
+            ]
+        },
+        {
+            unit: "Unit 3: Health & Illness",
+            title: "สัปดาห์ที่ 7: การให้คำแนะนำ (Giving Advice)",
+            desc: "ป่วยแบบนี้ ควรทำยังไงดี?",
+            items: [
+                {t:"Should ✅", s:"Should ควรทำ"}, {t:"Shouldn't ❌", s:"Shouldn't ไม่ควรทำ"}, 
+                {t:"See a doctor 👨‍⚕️", s:"See a doctor ไปหาหมอ"}, {t:"Take medicine 💊", s:"Take medicine กินยา"},
+                {t:"Go to bed 🛌", s:"Go to bed เข้านอน/พักผ่อน"}, {t:"Rest 😌", s:"Rest พักผ่อน"}, 
+                {t:"Warm water 💧", s:"Drink warm water ดื่มน้ำอุ่น"}, {t:"Eat too much 🍕", s:"Eat too much กินเยอะเกินไป"},
+                {t:"Play outside 🏃", s:"Play outside เล่นข้างนอก"}, {t:"Hospital 🏥", s:"Hospital โรงพยาบาล"}
+            ],
+            quiz: [
+                {q: "ถ้าเพื่อนปวดหัว (Headache) เขาควรทำอะไร?", a: "Take medicine (กินยา) / Rest", o: ["Play outside", "Eat too much", "Take medicine (กินยา) / Rest", "Shouldn't rest"]},
+                {q: "ถ้าเพื่อนเป็นไข้ตัวร้อน (Fever) ไม่ควรทำสิ่งใด?", a: "Shouldn't play outside", o: ["Should rest", "Shouldn't play outside", "Should see a doctor", "Should drink warm water"]},
+                {q: "ถ้าเจ็บคอ (Sore throat) ควรดื่มอะไร?", a: "Warm water (น้ำอุ่น)", o: ["Cold water", "Cola", "Warm water (น้ำอุ่น)", "Coffee"]},
+                {q: "ถ้าปวดท้องมากๆ (Stomachache) คำแนะนำคืออะไร?", a: "Shouldn't eat too much.", o: ["Should play outside.", "Shouldn't rest.", "Shouldn't see a doctor.", "Shouldn't eat too much."]},
+                {q: "ถ้าป่วยหนักไม่ยอมหาย ควรไปพบใคร?", a: "See a doctor", o: ["See a teacher", "See a police", "See a doctor", "See a farmer"]}
+            ]
+        },
+        {
+            unit: "Unit 4: Free Time",
+            title: "สัปดาห์ที่ 8: กิจกรรมยามว่าง (Hobbies)",
+            desc: "งานอดิเรกของคนเก่ง",
+            items: [
+                {t:"Collect stamps ✉️", s:"Collect stamps สะสมแสตมป์"}, {t:"Internet 💻", s:"Surf the internet เล่นอินเทอร์เน็ต"}, 
+                {t:"Photos 📸", s:"Take photos ถ่ายรูป"}, {t:"Chess ♟️", s:"Play chess เล่นหมากรุก"},
+                {t:"Comics 📖", s:"Read comic books อ่านหนังสือการ์ตูน"}, {t:"Puzzles 🧩", s:"Do puzzles ต่อจิ๊กซอว์"}, 
+                {t:"Music 🎧", s:"Listen to music ฟังเพลง"}, {t:"Movies 🍿", s:"Watch movies ดูหนัง"},
+                {t:"Fishing 🎣", s:"Go fishing ไปตกปลา"}, {t:"Shopping 🛒", s:"Go shopping ไปช้อปปิ้ง"}
+            ],
+            quiz: [
+                {q: "กิจกรรมที่ต้องใช้จิ๊กซอว์หลายๆ ชิ้นมาประกอบกัน คือกิจกรรมใด?", a: "Do puzzles", o: ["Play chess", "Take photos", "Do puzzles", "Collect stamps"]},
+                {q: "การหาข้อมูล หรือดูสิ่งต่างๆ บนเว็บไซต์ เรียกว่ากิจกรรมใด?", a: "Surf the internet", o: ["Listen to music", "Surf the internet", "Read comic books", "Go fishing"]},
+                {q: "ถ้าเพื่อนถือเบ็ดตกปลา เขาจะไปทำอะไร?", a: "Go fishing", o: ["Go shopping", "Go swimming", "Go fishing", "Take photos"]},
+                {q: "หมากรุก ภาษาอังกฤษเรียกว่าอะไร?", a: "Chess", o: ["Comics", "Puzzles", "Stamps", "Chess"]},
+                {q: "การอ่านหนังสือภาพที่มีช่องๆ สนุกๆ เรียกว่าอะไร?", a: "Read comic books", o: ["Read a newspaper", "Read comic books", "Watch movies", "Listen to music"]}
+            ]
+        },
+        {
+            unit: "ทบทวนบทเรียน (Mid-term)",
+            title: "สัปดาห์ที่ 9: ทบทวนครึ่งเทอม 1",
+            desc: "ทดสอบความรู้ที่เรียนมา",
+            items: [
+                {t:"Review 🔄", s:"Review ทบทวน"}, {t:"Chore 🧹", s:"Chore งานบ้าน"}, 
+                {t:"Rarely 🤏", s:"Rarely แทบจะไม่"}, {t:"Onion 🧅", s:"Onion หัวหอม"},
+                {t:"Bottle 🍼", s:"Bottle ขวด"}, {t:"Medicine 💊", s:"Medicine ยา"}, 
+                {t:"Collect ✉️", s:"Collect สะสม"}, {t:"Often 🔁", s:"Often บ่อยๆ"},
+                {t:"How much ❓", s:"How much มากเท่าไหร่"}, {t:"Backache 🔙", s:"Backache ปวดหลัง"}
+            ],
+            quiz: [
+                {q: "คำว่า 'งานบ้าน' ภาษาอังกฤษเรียกว่าอะไร?", a: "Chore", o: ["Job", "Work", "Hobby", "Chore"]},
+                {q: "คำว่า 'แทบจะไม่เคยทำ' (10%) คือคำใด?", a: "Rarely", o: ["Always", "Often", "Usually", "Rarely"]},
+                {q: "หัวหอม ภาษาอังกฤษคืออะไร?", a: "Onion", o: ["Garlic", "Cabbage", "Onion", "Cucumber"]},
+                {q: "นามนับไม่ได้ (เช่น นม, น้ำตาล) ต้องใช้คำถามใดในการถามปริมาณ?", a: "How much", o: ["How many", "How old", "How much", "How often"]},
+                {q: "อาการ 'ปวดหลัง' ภาษาอังกฤษคือข้อใด?", a: "Backache", o: ["Headache", "Earache", "Backache", "Stomachache"]}
+            ]
+        },
+        {
+            unit: "Unit 4: Free Time",
+            title: "สัปดาห์ที่ 10: กีฬาแบบ Play / Go / Do",
+            desc: "กีฬาไหนใช้กริยาตัวไหนนะ?",
+            items: [
+                {t:"Play football ⚽", s:"Play football เล่นฟุตบอล (มีลูกบอล/แข่งเป็นทีม)"}, {t:"Play tennis 🎾", s:"Play tennis เล่นเทนนิส"}, 
+                {t:"Play badminton 🏸", s:"Play badminton เล่นแบดมินตัน"}, {t:"Go swimming 🏊", s:"Go swimming ไปว่ายน้ำ (เติม -ing)"},
+                {t:"Go running 🏃", s:"Go running ไปวิ่ง"}, {t:"Go cycling 🚲", s:"Go cycling ไปปั่นจักรยาน"}, 
+                {t:"Do yoga 🧘‍♀️", s:"Do yoga เล่นโยคะ (กีฬาเดี่ยว/ศิลปะป้องกันตัว)"}, {t:"Do judo 🥋", s:"Do judo เล่นยูโด"},
+                {t:"Do karate 🥋", s:"Do karate เล่นคาราเต้"}, {t:"Win 🏆", s:"Win ชนะ"}
+            ],
+            quiz: [
+                {q: "กีฬาที่เป็นศิลปะป้องกันตัว เช่น ยูโด คาราเต้ จะใช้คำกริยาใดนำหน้า?", a: "Do (เช่น Do judo)", o: ["Play", "Go", "Make", "Do (เช่น Do judo)"]},
+                {q: "กีฬาที่ลงท้ายด้วย -ing เช่น swimming, running จะใช้กริยาใด?", a: "Go (เช่น Go swimming)", o: ["Play", "Do", "Go (เช่น Go swimming)", "Have"]},
+                {q: "กีฬาที่มีลูกบอลหรือแข่งขันเป็นทีม จะใช้กริยาใด?", a: "Play (เช่น Play football)", o: ["Go", "Do", "Play (เช่น Play football)", "Make"]},
+                {q: "การออกกำลังกายแบบ 'โยคะ' ต้องพูดว่าอย่างไร?", a: "Do yoga", o: ["Play yoga", "Go yoga", "Do yoga", "Make yoga"]},
+                {q: "ถ้าเราเล่นกีฬาแล้วได้คะแนนมากกว่าคู่แข่ง เรียกว่าอะไร?", a: "Win (ชนะ)", o: ["Lose", "Run", "Hit", "Win (ชนะ)"]}
+            ]
+        },
+        {
+            unit: "Unit 5: Around Town",
+            title: "สัปดาห์ที่ 11: สถานที่สำคัญในเมือง",
+            desc: "คำศัพท์สถานที่ต่างๆ ที่เราต้องรู้จัก",
+            items: [
+                {t:"Bakery 🥖", s:"Bakery ร้านเบเกอรี่"}, {t:"Pharmacy 💊", s:"Pharmacy ร้านขายยา"}, 
+                {t:"Post office 📮", s:"Post office ที่ทำการไปรษณีย์"}, {t:"Police station 🚓", s:"Police station สถานีตำรวจ"},
+                {t:"Fire station 🚒", s:"Fire station สถานีดับเพลิง"}, {t:"Museum 🏛️", s:"Museum พิพิธภัณฑ์"}, 
+                {t:"Library 📚", s:"Library ห้องสมุด"}, {t:"Bank 🏦", s:"Bank ธนาคาร"},
+                {t:"Supermarket 🛒", s:"Supermarket ซูเปอร์มาร์เก็ต"}, {t:"Cinema 🍿", s:"Cinema โรงภาพยนตร์"}
+            ],
+            quiz: [
+                {q: "ถ้าเราป่วยและต้องการซื้อยา (Medicine) เราต้องไปที่ไหน?", a: "Pharmacy (ร้านขายยา)", o: ["Bakery", "Pharmacy (ร้านขายยา)", "Bank", "Museum"]},
+                {q: "ถ้าเราต้องการส่งจดหมายหรือพัสดุ เราต้องไปที่ไหน?", a: "Post office", o: ["Police station", "Fire station", "Post office", "Library"]},
+                {q: "สถานีดับเพลิง ภาษาอังกฤษเรียกว่าอะไร?", a: "Fire station", o: ["Police station", "Gas station", "Fire station", "Train station"]},
+                {q: "สถานที่ที่เราสามารถเข้าไปอ่านหนังสือและยืมหนังสือได้ คือที่ใด?", a: "Library", o: ["Museum", "Cinema", "Bakery", "Library"]},
+                {q: "โรงภาพยนตร์ที่ใช้ดูหนังจอใหญ่ๆ เรียกว่าอะไร?", a: "Cinema", o: ["Supermarket", "Bank", "Museum", "Cinema"]}
+            ]
+        },
+        {
+            unit: "Unit 5: Around Town",
+            title: "สัปดาห์ที่ 12: การบอกทิศทาง (Directions)",
+            desc: "เดินไปทางไหนถึงจะถึงนะ?",
+            items: [
+                {t:"Turn left ⬅️", s:"Turn left เลี้ยวซ้าย"}, {t:"Turn right ➡️", s:"Turn right เลี้ยวขวา"}, 
+                {t:"Go straight ⬆️", s:"Go straight เดินตรงไป"}, {t:"Go past 🚶", s:"Go past เดินผ่าน"},
+                {t:"On the corner 📐", s:"On the corner ตรงหัวมุม"}, {t:"Opposite ↔️", s:"Opposite ตรงข้าม"}, 
+                {t:"Next to ➡️", s:"Next to ถัดจาก/ติดกับ"}, {t:"Between ⏸️", s:"Between อยู่ระหว่าง (สองสิ่ง)"},
+                {t:"Crosswalk 🦓", s:"Crosswalk ทางม้าลาย"}, {t:"Map 🗺️", s:"Map แผนที่"}
+            ],
+            quiz: [
+                {q: "ถ้าเพื่อนถามทาง แล้วเราจะบอกว่า 'เดินผ่านโรงเรียนไป' ต้องพูดว่าอย่างไร?", a: "Go past the school.", o: ["Go straight to school.", "Turn left at school.", "Go past the school.", "Opposite the school."]},
+                {q: "สถานที่ที่ตั้งอยู่ตรงทางแยก หรือจุดตัดของถนน 2 สาย เรียกว่าอะไร?", a: "On the corner", o: ["Next to", "Between", "On the corner", "Turn right"]},
+                {q: "คำว่า 'เลี้ยวขวา' ภาษาอังกฤษคือคำใด?", a: "Turn right", o: ["Turn left", "Go straight", "Go past", "Turn right"]},
+                {q: "ทางสำหรับให้คนเดินข้ามถนนอย่างปลอดภัย เรียกว่าอะไร?", a: "Crosswalk", o: ["Map", "Corner", "Crosswalk", "Straight"]},
+                {q: "กระดาษหรือแอปที่แสดงเส้นทางและสถานที่ต่างๆ คืออะไร?", a: "Map (แผนที่)", o: ["Book", "Map (แผนที่)", "Ticket", "Picture"]}
+            ]
+        },
+        {
+            unit: "Unit 6: Animals & Habitats",
+            title: "สัปดาห์ที่ 13: สัตว์ป่าระดับแอดวานซ์",
+            desc: "สัตว์เด่นๆ จากทั่วโลก",
+            items: [
+                {t:"Cheetah 🐆", s:"Cheetah เสือชีตาห์"}, {t:"Rhino 🦏", s:"Rhino แรด"}, 
+                {t:"Gorilla 🦍", s:"Gorilla กอริลลา"}, {t:"Camel 🐪", s:"Camel อูฐ"},
+                {t:"Ostrich 🪶", s:"Ostrich นกกระจอกเทศ"}, {t:"Dolphin 🐬", s:"Dolphin โลมา"}, 
+                {t:"Shark 🦈", s:"Shark ฉลาม"}, {t:"Eagle 🦅", s:"Eagle นกอินทรี"},
+                {t:"Jungle 🌳", s:"Jungle ป่าทึบ"}, {t:"Desert 🏜️", s:"Desert ทะเลทราย"}
+            ],
+            quiz: [
+                {q: "สัตว์ชนิดใดที่มีโหนกที่หลัง และอาศัยอยู่ในทะเลทราย (Desert)?", a: "Camel (อูฐ)", o: ["Cheetah", "Rhino", "Camel (อูฐ)", "Gorilla"]},
+                {q: "นกที่ตัวใหญ่ที่สุด วิ่งเร็วมาก แต่บินไม่ได้ คืออะไร?", a: "Ostrich (นกกระจอกเทศ)", o: ["Eagle", "Parrot", "Ostrich (นกกระจอกเทศ)", "Penguin"]},
+                {q: "สัตว์ชนิดใดที่มีนออยู่ตรงจมูก ผิวหนังหนาและตัวใหญ่มาก?", a: "Rhino (แรด)", o: ["Hippo", "Gorilla", "Elephant", "Rhino (แรด)"]},
+                {q: "นกล่าเหยื่อที่มีสายตาแหลมคม บินได้สูงมาก คืออะไร?", a: "Eagle (นกอินทรี)", o: ["Ostrich", "Eagle (นกอินทรี)", "Parrot", "Duck"]},
+                {q: "ลิงสายพันธุ์ที่มีขนาดใหญ่และแข็งแรงมาก คืออะไร?", a: "Gorilla", o: ["Monkey", "Gorilla", "Chimpanzee", "Camel"]}
+            ]
+        },
+        {
+            unit: "Unit 6: Animals & Habitats",
+            title: "สัปดาห์ที่ 14: การเปรียบเทียบขั้นกว่า (Comparatives)",
+            desc: "ใครเร็วกว่า ใครสูงกว่า ใครหนักกว่า?",
+            items: [
+                {t:"Taller 🦒", s:"Taller สูงกว่า"}, {t:"Shorter 🐢", s:"Shorter เตี้ยกว่า/สั้นกว่า"}, 
+                {t:"Faster 🐆", s:"Faster เร็วกว่า"}, {t:"Slower 🐌", s:"Slower ช้ากว่า"},
+                {t:"Bigger 🐘", s:"Bigger ใหญ่กว่า (เบิ้ล g)"}, {t:"Smaller 🐜", s:"Smaller เล็กกว่า"}, 
+                {t:"Heavier 🦏", s:"Heavier หนักกว่า (เปลี่ยน y เป็น i เติม er)"}, {t:"Lighter 🪶", s:"Lighter เบากว่า"},
+                {t:"More dangerous 🦈", s:"More dangerous อันตรายกว่า (คำยาวใช้ more)"}, {t:"More beautiful 🦋", s:"More beautiful สวยกว่า"}
+            ],
+            quiz: [
+                {q: "ถ้าต้องการบอกว่ายีราฟ 'สูงกว่า' ม้าลาย ต้องใช้คำใด?", a: "Taller", o: ["Shorter", "Faster", "Bigger", "Taller"]},
+                {q: "แรด 'หนักกว่า' สุนัข คำว่าหนักกว่าเขียนอย่างไร?", a: "Heavier", o: ["Heaver", "Heavyer", "Heavier", "More heavy"]},
+                {q: "ฉลาม 'อันตรายกว่า' โลมา คำว่าอันตรายเป็นคำยาว ต้องเติมอะไร?", a: "More dangerous", o: ["Dangerouser", "More dangerous", "Most dangerous", "Dangerouser than"]},
+                {q: "ผีเสื้อ 'สวยกว่า' แมลงวัน คำว่าสวยกว่าคือข้อใด?", a: "More beautiful", o: ["Beautifuler", "More beautiful", "Most beautiful", "Very beautiful"]},
+                {q: "เสือชีตาห์ 'เร็วกว่า' เต่า คำว่าเร็วกว่าคือข้อใด?", a: "Faster", o: ["Slower", "Faster", "Lighter", "Taller"]}
+            ]
+        },
+        {
+            unit: "Unit 6: Animals & Habitats",
+            title: "สัปดาห์ที่ 15: การเปรียบเทียบขั้นสูงสุด (Superlatives)",
+            desc: "ที่สุดในโลก!",
+            items: [
+                {t:"The tallest 🦒", s:"The tallest สูงที่สุด"}, {t:"The shortest 🐢", s:"The shortest เตี้ยที่สุด/สั้นที่สุด"}, 
+                {t:"The fastest 🐆", s:"The fastest เร็วที่สุด"}, {t:"The slowest 🐌", s:"The slowest ช้าที่สุด"},
+                {t:"The biggest 🐘", s:"The biggest ใหญ่ที่สุด"}, {t:"The smallest 🐜", s:"The smallest เล็กที่สุด"}, 
+                {t:"The heaviest 🐳", s:"The heaviest หนักที่สุด"}, {t:"The lightest 🪶", s:"The lightest เบาที่สุด"},
+                {t:"The most dangerous 🦈", s:"The most dangerous อันตรายที่สุด"}, {t:"The most beautiful 🦚", s:"The most beautiful สวยที่สุด"}
+            ],
+            quiz: [
+                {q: "วาฬสีน้ำเงินเป็นสัตว์ที่ 'ใหญ่ที่สุด' ในโลก ใช้คำใด?", a: "The biggest", o: ["The tallest", "The biggest", "The smallest", "Bigger"]},
+                {q: "เสือชีตาห์เป็นสัตว์วิ่ง 'เร็วที่สุด' ในโลก ใช้คำใด?", a: "The fastest", o: ["Faster", "The slowest", "The tallest", "The fastest"]},
+                {q: "การเปรียบเทียบขั้นสูงสุด (Superlative) จะต้องมีคำใดนำหน้าเสมอ?", a: "The", o: ["A", "An", "The", "Than"]},
+                {q: "ฉลามขาวเป็นสัตว์ที่ 'อันตรายที่สุด' ใช้คำใด?", a: "The most dangerous", o: ["More dangerous", "The most dangerous", "Dangerousest", "The dangerous"]},
+                {q: "ขนนก เป็นสิ่งของที่ 'เบาที่สุด' เมื่อเทียบกับหิน ใช้คำใด?", a: "The lightest", o: ["The heaviest", "The smallest", "The lightest", "Lighter"]}
+            ]
+        },
+        {
+            unit: "บทสรุปและทดสอบปลายภาค",
+            title: "สัปดาห์ที่ 16: ทบทวนก่อนปิดเทอม 1",
+            desc: "ทดสอบความรู้ ป.5 เทอม 1",
+            items: [
+                {t:"Review 🔄", s:"Review ทบทวน"}, {t:"Pharmacy 💊", s:"Pharmacy ร้านขายยา"}, 
+                {t:"Go straight ⬆️", s:"Go straight เดินตรงไป"}, {t:"Cheetah 🐆", s:"Cheetah เสือชีตาห์"},
+                {t:"The fastest 🐆💨", s:"The fastest เร็วที่สุด"}, {t:"Play tennis 🎾", s:"Play tennis เล่นเทนนิส"}, 
+                {t:"Go swimming 🏊", s:"Go swimming ไปว่ายน้ำ"}, {t:"Do yoga 🧘‍♀️", s:"Do yoga เล่นโยคะ"},
+                {t:"More beautiful 🦋", s:"More beautiful สวยกว่า"}, {t:"The biggest 🐘", s:"The biggest ใหญ่ที่สุด"}
+            ],
+            quiz: [
+                {q: "ร้านที่ขายยา (Medicine) เรียกว่าอะไร?", a: "Pharmacy", o: ["Bakery", "Museum", "Pharmacy", "Library"]},
+                {q: "คำสั่งบอกให้ 'เดินตรงไป' คือคำใด?", a: "Go straight", o: ["Turn left", "Turn right", "Go past", "Go straight"]},
+                {q: "ถ้ากริยาที่เติม -ing (เช่น swimming, running) ต้องใช้คำกริยาใดนำหน้าเพื่อบอกการเล่นกีฬา?", a: "Go (เช่น Go swimming)", o: ["Play", "Do", "Make", "Go (เช่น Go swimming)"]},
+                {q: "นกยูง (Peacock) 'สวยกว่า' ไก่ (Hen) คำว่าสวยกว่าคือข้อใด?", a: "More beautiful", o: ["Beautifuler", "The most beautiful", "More beautiful", "Very beautiful"]},
+                {q: "วาฬ (Whale) เป็นสัตว์ที่ 'ใหญ่ที่สุด' ในมหาสมุทร ใช้คำใด?", a: "The biggest", o: ["The tallest", "The biggest", "The smallest", "Bigger"]}
+            ]
+        }
+    ];
+
+    let currentWeek = 0;
+    let score = 0;
+    let viewedItems = new Set();
+    let currentQuizIndex = 0;
+
+    function init() {
+        const bar = document.getElementById('weekBar');
+        bar.innerHTML = '';
+        data.forEach((w, i) => {
+            const b = document.createElement('button');
+            b.className = 'week-btn' + (i === 0 ? ' active' : '');
+            b.innerText = 'สัปดาห์ที่ ' + (i + 1);
+            b.onclick = () => switchWeek(i);
+            bar.appendChild(b);
+        });
+        loadWeek(0);
+    }
+
+    function switchWeek(idx) {
+        currentWeek = idx;
+        viewedItems.clear();
+        document.querySelectorAll('.week-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
+        loadWeek(idx);
+    }
+
+    function loadWeek(idx) {
+        const w = data[idx];
+        document.getElementById('unitDisplay').innerText = w.unit;
+        document.getElementById('chapterTitle').innerText = w.title;
+        document.getElementById('chapterDesc').innerText = w.desc;
+        
+        const grid = document.getElementById('lessonItems');
+        grid.innerHTML = '';
+        w.items.forEach((item, i) => {
+            const box = document.createElement('div');
+            box.className = 'lesson-box';
+            box.innerHTML = `<span class="big-text">${item.t}</span><span class="sub-text">คลิกเพื่อฟังเสียง</span>`;
+            box.onclick = () => {
+                speak(item.s);
+                box.classList.add('viewed');
+                viewedItems.add(i);
+                checkReady();
+            };
+            grid.appendChild(box);
+        });
+        checkReady();
+    }
+
+    function checkReady() {
+        const ready = viewedItems.size >= data[currentWeek].items.length;
+        document.getElementById('quizBtn').disabled = !ready;
+        document.getElementById('quizHint').style.display = ready ? 'none' : 'block';
+    }
+
+    // ฟังก์ชันอ่านออกเสียงภาษาอังกฤษและไทยแบบแยกสำเนียงและความเร็ว
+    function speak(txt) {
+        if (!window.speechSynthesis) return;
+        speechSynthesis.cancel(); 
+        
+        // แยกข้อความภาษาอังกฤษที่อยู่ด้านหน้า และข้อความภาษาไทยที่อยู่ด้านหลัง
+        const engPartMatch = txt.match(/^[^ก-๙]+/);
+        const thaiPartMatch = txt.match(/[ก-๙].*/);
+
+        if (engPartMatch && thaiPartMatch && engPartMatch[0].trim().length > 0) {
+            // อ่านภาษาอังกฤษช้าๆ ชัดๆ (0.5)
+            const uEng = new SpeechSynthesisUtterance(engPartMatch[0].trim());
+            uEng.lang = 'en-US'; 
+            uEng.rate = 0.5; 
+            
+            // อ่านคำแปลภาษาไทย ความเร็วปกติ
+            const uThai = new SpeechSynthesisUtterance(thaiPartMatch[0].trim());
+            uThai.lang = 'th-TH';
+            uThai.rate = 0.9; 
+
+            speechSynthesis.speak(uEng);
+            speechSynthesis.speak(uThai);
+        } else {
+            const u = new SpeechSynthesisUtterance(txt);
+            if (!/[ก-๙]/.test(txt)) {
+                u.lang = 'en-US';
+                u.rate = 0.5;
+            } else {
+                u.lang = 'th-TH'; 
+                u.rate = 0.85; 
+            }
+            speechSynthesis.speak(u);
+        }
+    }
+
+    function startQuiz() {
+        currentQuizIndex = 0;
+        document.getElementById('quizModal').style.display = 'flex';
+        showQuestion();
+    }
+
+    function showQuestion() {
+        const qData = data[currentWeek].quiz[currentQuizIndex];
+        const total = data[currentWeek].quiz.length;
+        
+        document.getElementById('qNum').innerText = `ข้อที่ ${currentQuizIndex + 1} / ${total}`;
+        document.getElementById('qText').innerText = qData.q;
+        document.getElementById('progBar').style.width = (currentQuizIndex / total * 100) + '%';
+        
+        const opts = document.getElementById('options');
+        opts.innerHTML = '';
+        qData.o.forEach(o => {
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
+            btn.innerText = o;
+            btn.onclick = () => handleAnswer(o, qData.a);
+            opts.appendChild(btn);
+        });
+        
+        // อ่านคำถาม
+        speak(qData.q);
+    }
+
+    function handleAnswer(ans, correct) {
+        if (ans === correct) {
+            score += 10;
+            document.getElementById('userScore').innerText = score;
+            speak("Correct ถูกต้องครับ เก่งมาก");
+        } else {
+            speak("Try again ลองใหม่อีกนิดนะครับ");
+        }
+
+        currentQuizIndex++;
+        if (currentQuizIndex < data[currentWeek].quiz.length) {
+            setTimeout(showQuestion, 2000);
+        } else {
+            setTimeout(() => {
+                document.getElementById('progBar').style.width = '100%';
+                document.getElementById('qNum').innerText = "🎉 ยินดีด้วย!";
+                document.getElementById('qText').innerText = `จบการเรียนสัปดาห์ที่ ${currentWeek+1}!\nคะแนนสะสมรวม: ${score} คะแนน`;
+                
+                const opts = document.getElementById('options');
+                opts.innerHTML = '';
+                const closeBtn = document.createElement('button');
+                closeBtn.className = 'start-btn';
+                closeBtn.innerText = 'ปิดหน้าต่าง';
+                closeBtn.onclick = () => document.getElementById('quizModal').style.display = 'none';
+                opts.appendChild(closeBtn);
+                
+                speak("Very good เก่งมากครับ ทำแบบทดสอบครบแล้ว");
+            }, 1000);
+        }
+    }
+
+    window.onload = init;
+</script>
+</body>
+</html>
