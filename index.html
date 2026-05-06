@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English P.5 Term 1 - Fun Learning 16 Weeks</title>
+    <title>English P.5 Term 2 - Fun Learning 16 Weeks</title>
     <link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #00796b; /* Teal */
-            --primary-accent: #f4511e; /* Deep Orange */
-            --primary-orange: #ff9800;
-            --soft-bg: #e0f2f1; /* Very light teal */
+            --primary-color: #1a237e; /* Navy */
+            --primary-accent: #00bcd4; /* Cyan */
+            --primary-orange: #ff9800; /* Orange */
+            --soft-bg: #e8eaf6; /* Soft Indigo */
             --font-main: 'Mali', cursive;
             --success-green: #2e7d32;
-            --header-color: #004d40;
-            --card-border: #26a69a;
-            --card-bg: #b2dfdb;
+            --header-color: #000051;
+            --card-border: #3f51b5;
+            --card-bg: #c5cae9;
         }
 
         body {
@@ -27,7 +27,7 @@
         }
 
         header {
-            background: linear-gradient(180deg, #b2dfdb, #e0f2f1);
+            background: linear-gradient(180deg, #c5cae9, #e8eaf6);
             padding: 20px;
             text-align: center;
             border-bottom: 6px dashed var(--primary-color);
@@ -93,7 +93,7 @@
 
         .unit-tag {
             background: var(--primary-accent);
-            color: white;
+            color: #000;
             padding: 5px 15px;
             border-radius: 12px;
             font-size: 0.9rem;
@@ -203,7 +203,7 @@
 <body>
 
 <header>
-    <h1 style="margin:0; color: var(--header-color);">🇬🇧 Fun English P.5 (เทอม 1)</h1>
+    <h1 style="margin:0; color: var(--header-color);">🇬🇧 Fun English P.5 (เทอม 2)</h1>
     <p class="author-text">พัฒนาบทเรียนโดย อาจารย์วุฒิชัย (Ajarn Wutthichai)</p>
     <div class="score-panel">⭐ คะแนนสะสม: <span id="userScore">0</span></div>
 </header>
@@ -237,307 +237,307 @@
 <script>
     const data = [
         {
-            unit: "Unit 1: My Responsibilities",
-            title: "สัปดาห์ที่ 1: งานบ้านของฉัน (Chores)",
-            desc: "อยู่บ้านเราช่วยทำอะไรได้บ้าง?",
+            unit: "Unit 1: What did you do?",
+            title: "สัปดาห์ที่ 1: อดีตกาล (Past Tense - Regular Verbs)",
+            desc: "เมื่อวานนี้เธอทำอะไรมาบ้าง? (การเติม -ed)",
             items: [
-                {t:"Sweep 🧹", s:"Sweep the floor กวาดพื้น"}, {t:"Mop 🪣", s:"Mop the floor ถูพื้น"}, 
-                {t:"Dishes 🍽️", s:"Wash the dishes ล้างจาน"}, {t:"Laundry 🧺", s:"Do the laundry ซักผ้า"},
-                {t:"Iron 👔", s:"Iron the clothes รีดผ้า"}, {t:"Dog 🐕", s:"Feed the dog ให้อาหารสุนัข"}, 
-                {t:"Rubbish 🗑️", s:"Take out the rubbish ทิ้งขยะ"}, {t:"Bed 🛏️", s:"Make the bed จัดเตียง"},
-                {t:"Plants 🪴", s:"Water the plants รดน้ำต้นไม้"}, {t:"Window 🪟", s:"Clean the window เช็ดหน้าต่าง"}
+                {t:"Played ⚽", s:"Played เล่น (ในอดีต)"}, {t:"Watched 📺", s:"Watched ดู (ในอดีต)"}, 
+                {t:"Cleaned 🧹", s:"Cleaned ทำความสะอาด (ในอดีต)"}, {t:"Cooked 🍳", s:"Cooked ทำอาหาร (ในอดีต)"},
+                {t:"Washed 💦", s:"Washed ล้าง/ซัก (ในอดีต)"}, {t:"Walked 🚶", s:"Walked เดิน (ในอดีต)"}, 
+                {t:"Listened 🎧", s:"Listened ฟัง (ในอดีต)"}, {t:"Danced 💃", s:"Danced เต้น (ในอดีต)"},
+                {t:"Yesterday 🔙", s:"Yesterday เมื่อวานนี้"}, {t:"Last night 🌙", s:"Last night เมื่อคืนนี้"}
             ],
             quiz: [
-                {q: "การ 'ล้างจาน' ภาษาอังกฤษใช้คำว่าอะไร?", a: "Wash the dishes", o: ["Do the laundry", "Wash the dishes", "Mop the floor", "Make the bed"]},
-                {q: "ถ้าขยะเต็มถัง เราต้องทำหน้าที่อะไร?", a: "Take out the rubbish", o: ["Feed the dog", "Take out the rubbish", "Sweep the floor", "Water the plants"]},
-                {q: "คำว่า 'Iron the clothes' หมายถึงอะไร?", a: "รีดผ้า", o: ["ซักผ้า", "พับผ้า", "รีดผ้า", "ตากผ้า"]},
-                {q: "ไม้ถูพื้น (Mop) ใช้ทำกิจกรรมใด?", a: "Mop the floor", o: ["Sweep the floor", "Mop the floor", "Clean the window", "Make the bed"]},
-                {q: "ถ้าต้นไม้เหี่ยวเฉา เราต้องทำหน้าที่อะไร?", a: "Water the plants", o: ["Feed the dog", "Do the laundry", "Water the plants", "Wash the dishes"]}
+                {q: "การเล่าถึงเหตุการณ์ที่ 'ผ่านไปแล้ว' มักจะเติมตัวอักษรใดหลังคำกริยา?", a: "-ed", o: ["-ing", "-ed", "-s", "-ly"]},
+                {q: "ถ้าเมื่อวานฉันเล่นฟุตบอล จะพูดว่าอย่างไร?", a: "I played football yesterday.", o: ["I play football yesterday.", "I played football yesterday.", "I playing football yesterday.", "I plays football yesterday."]},
+                {q: "เมื่อคืนนี้ฉันดูทีวี ภาษาอังกฤษคือข้อใด?", a: "I watched TV last night.", o: ["I watch TV last night.", "I watched TV last night.", "I clean TV last night.", "I wash TV last night."]},
+                {q: "คำใดหมายถึง 'เมื่อวานนี้'?", a: "Yesterday", o: ["Today", "Tomorrow", "Yesterday", "Last night"]},
+                {q: "คำว่า 'Cooked' มีความหมายว่าอะไร?", a: "ทำอาหาร (ในอดีต)", o: ["ทำอาหาร (ในอดีต)", "ทำความสะอาด (ในอดีต)", "ล้างจาน (ในอดีต)", "เดิน (ในอดีต)"]}
             ]
         },
         {
-            unit: "Unit 1: My Responsibilities",
-            title: "สัปดาห์ที่ 2: บอกความถี่ (Adverbs of Frequency)",
-            desc: "คุณทำงานบ้านบ่อยแค่ไหน?",
+            unit: "Unit 1: What did you do?",
+            title: "สัปดาห์ที่ 2: อดีตกาล (Irregular Verbs)",
+            desc: "คำกริยาที่เปลี่ยนรูปไปเลยเมื่อเป็นอดีต",
             items: [
-                {t:"Always 💯", s:"Always เสมอ (100%)"}, {t:"Usually 🔄", s:"Usually เป็นประจำ (80%)"}, 
-                {t:"Often 🔁", s:"Often บ่อยๆ (70%)"}, {t:"Sometimes ⚖️", s:"Sometimes บางครั้ง (50%)"},
-                {t:"Rarely 🤏", s:"Rarely แทบจะไม่ (10%)"}, {t:"Never ❌", s:"Never ไม่เคยเลย (0%)"}, 
-                {t:"Every day 📆", s:"Every day ทุกๆ วัน"}, {t:"Once 1️⃣", s:"Once a week สัปดาห์ละ 1 ครั้ง"},
-                {t:"Twice 2️⃣", s:"Twice a week สัปดาห์ละ 2 ครั้ง"}, {t:"How often? ❓", s:"How often บ่อยแค่ไหน"}
+                {t:"Go ➡️ Went", s:"Go เปลี่ยนเป็น Went (ไป)"}, {t:"Eat ➡️ Ate", s:"Eat เปลี่ยนเป็น Ate (กิน)"}, 
+                {t:"See ➡️ Saw", s:"See เปลี่ยนเป็น Saw (เห็น)"}, {t:"Have ➡️ Had", s:"Have เปลี่ยนเป็น Had (มี/กิน)"},
+                {t:"Do ➡️ Did", s:"Do เปลี่ยนเป็น Did (ทำ)"}, {t:"Buy ➡️ Bought", s:"Buy เปลี่ยนเป็น Bought (ซื้อ)"}, 
+                {t:"Make ➡️ Made", s:"Make เปลี่ยนเป็น Made (ทำ/สร้าง)"}, {t:"Take ➡️ Took", s:"Take เปลี่ยนเป็น Took (นำไป/พาไป)"},
+                {t:"Read ➡️ Read", s:"Read เขียนเหมือนเดิมแต่อ่านว่า เรด (อ่าน)"}, {t:"Last week 📆", s:"Last week สัปดาห์ที่แล้ว"}
             ],
             quiz: [
-                {q: "คำใดหมายถึง 'ไม่เคยทำเลย' (0%)?", a: "Never", o: ["Always", "Sometimes", "Never", "Often"]},
-                {q: "ถ้าต้องการถามว่า 'คุณทำสิ่งนี้บ่อยแค่ไหน?' ต้องใช้คำถามใด?", a: "How often?", o: ["How much?", "How often?", "How many?", "How long?"]},
-                {q: "คำใดมีความหมายว่า 'แทบจะไม่เคยทำ'?", a: "Rarely", o: ["Always", "Usually", "Sometimes", "Rarely"]},
-                {q: "คำว่า 'สัปดาห์ละสองครั้ง' พูดว่าอย่างไร?", a: "Twice a week", o: ["Once a week", "Twice a week", "Every day", "Three times a week"]},
-                {q: "ถ้าฉันล้างจานทุกวันเลย (100%) จะใช้คำใด?", a: "Always", o: ["Sometimes", "Never", "Rarely", "Always"]}
+                {q: "คำกริยาช่องที่ 2 (อดีต) ของคำว่า 'Go' (ไป) คือคำใด?", a: "Went", o: ["Goed", "Went", "Gone", "Going"]},
+                {q: "ถ้าสัปดาห์ที่แล้วฉัน 'กิน' พิซซ่า คำว่ากินในอดีตคือคำใด?", a: "Ate", o: ["Eat", "Eated", "Ate", "Eaten"]},
+                {q: "คำว่า 'Saw' เป็นอดีตของคำกริยาใด?", a: "See (เห็น)", o: ["Say (พูด)", "See (เห็น)", "Sell (ขาย)", "Sit (นั่ง)"]},
+                {q: "ฉันทำการบ้านเสร็จแล้วเมื่อคืนนี้ 'I ____ my homework last night.' เติมคำใด?", a: "Did", o: ["Do", "Does", "Did", "Done"]},
+                {q: "คำใดที่ช่องอดีตเขียนเหมือนเดิม แต่อ่านออกเสียงเปลี่ยนไป (คล้ายสีแดง)?", a: "Read (อ่านว่า เรด)", o: ["Make", "Buy", "Read (อ่านว่า เรด)", "Take"]}
             ]
         },
         {
-            unit: "Unit 2: At the Supermarket",
-            title: "สัปดาห์ที่ 3: อาหารและวัตถุดิบ",
-            desc: "ไปซื้อของที่ซูเปอร์มาร์เก็ตกัน",
+            unit: "Unit 2: Fun Trips",
+            title: "สัปดาห์ที่ 3: ทริปสนุกๆ ของฉัน",
+            desc: "คุณไปเที่ยวที่ไหนมาบ้าง?",
             items: [
-                {t:"Beef 🥩", s:"Beef เนื้อวัว"}, {t:"Pork 🥓", s:"Pork เนื้อหมู"}, 
-                {t:"Sausage 🌭", s:"Sausage ไส้กรอก"}, {t:"Cabbage 🥬", s:"Cabbage กะหล่ำปลี"},
-                {t:"Cucumber 🥒", s:"Cucumber แตงกวา"}, {t:"Onion 🧅", s:"Onion หัวหอม"}, 
-                {t:"Garlic 🧄", s:"Garlic กระเทียม"}, {t:"Grape 🍇", s:"Grape องุ่น"},
-                {t:"Watermelon 🍉", s:"Watermelon แตงโม"}, {t:"Meat 🥩", s:"Meat เนื้อสัตว์"}
+                {t:"Trip 🧳", s:"Trip การเดินทาง/ทริป"}, {t:"Beach 🏖️", s:"Beach ชายหาด"}, 
+                {t:"Mountain ⛰️", s:"Mountain ภูเขา"}, {t:"Waterfall 🏞️", s:"Waterfall น้ำตก"},
+                {t:"Zoo 🦒", s:"Zoo สวนสัตว์"}, {t:"Museum 🏛️", s:"Museum พิพิธภัณฑ์"}, 
+                {t:"Temple 🛕", s:"Temple วัด"}, {t:"Aquarium 🐠", s:"Aquarium พิพิธภัณฑ์สัตว์น้ำ"},
+                {t:"Amusement park 🎢", s:"Amusement park สวนสนุก"}, {t:"Fun 🎉", s:"Fun สนุกสนาน"}
             ],
             quiz: [
-                {q: "คำว่า 'เนื้อหมู' ภาษาอังกฤษคือคำว่าอะไร?", a: "Pork", o: ["Beef", "Meat", "Pork", "Sausage"]},
-                {q: "ผักที่มีลักษณะเป็นหัว กลมๆ เวลาปอกแล้วมักจะแสบตา คืออะไร?", a: "Onion (หัวหอม)", o: ["Garlic", "Cabbage", "Cucumber", "Onion (หัวหอม)"]},
-                {q: "กระเทียม ที่ใช้ใส่ในอาหารเพื่อความหอม คือคำใด?", a: "Garlic", o: ["Onion", "Garlic", "Cucumber", "Cabbage"]},
-                {q: "แตงโม ภาษาอังกฤษเรียกว่าอะไร?", a: "Watermelon", o: ["Grape", "Apple", "Watermelon", "Banana"]},
-                {q: "ไส้กรอก ภาษาอังกฤษเรียกว่าอะไร?", a: "Sausage", o: ["Pork", "Beef", "Sausage", "Meat"]}
+                {q: "สถานที่ที่มีสไลเดอร์ รถไฟเหาะ และของเล่นมากมาย คือที่ไหน?", a: "Amusement park", o: ["Aquarium", "Museum", "Amusement park", "Temple"]},
+                {q: "ถ้าไปดูปลาและสัตว์ทะเลในอุโมงค์กระจก ต้องไปที่ไหน?", a: "Aquarium", o: ["Beach", "Aquarium", "Waterfall", "Mountain"]},
+                {q: "ถ้าเรา 'Went to the beach' หมายถึงเราไปที่ไหนมา?", a: "ไปชายหาดมา", o: ["ไปภูเขามา", "ไปน้ำตกมา", "ไปชายหาดมา", "ไปวัดมา"]},
+                {q: "ถ้าเพื่อนไปเที่ยวแล้วเราอยากรู้ว่าสนุกไหม เราจะถามว่าอย่างไร?", a: "Was it fun?", o: ["Where did you go?", "Was it fun?", "What did you see?", "What did you eat?"]},
+                {q: "สถานที่ที่มีธรรมชาติ น้ำไหลจากที่สูงลงสู่ที่ต่ำ คือที่ใด?", a: "Waterfall (น้ำตก)", o: ["Beach", "Mountain", "Waterfall (น้ำตก)", "Zoo"]}
             ]
         },
         {
-            unit: "Unit 2: At the Supermarket",
-            title: "สัปดาห์ที่ 4: การถามปริมาณ",
-            desc: "How much หรือ How many?",
+            unit: "Unit 3: Festivals",
+            title: "สัปดาห์ที่ 4: เทศกาลไทย",
+            desc: "ลอยกระทงและสงกรานต์",
             items: [
-                {t:"How much? ❓", s:"How much ใช้ถามปริมาณนามนับไม่ได้"}, {t:"How many? ❓", s:"How many ใช้ถามจำนวนนามนับได้"}, 
-                {t:"A lot 📦", s:"A lot of... มีจำนวนมาก"}, {t:"A little 🤏", s:"A little... มีเล็กน้อย (นับไม่ได้)"},
-                {t:"A few 🖐️", s:"A few... มี 2-3 ชิ้น (นับได้)"}, {t:"Sugar 🧂", s:"Sugar น้ำตาล (นับไม่ได้)"}, 
-                {t:"Salt 🧂", s:"Salt เกลือ (นับไม่ได้)"}, {t:"Rice 🍚", s:"Rice ข้าว (นับไม่ได้)"},
-                {t:"Apples 🍎", s:"Apples แอปเปิล (นับได้)"}, {t:"Eggs 🥚", s:"Eggs ไข่ (นับได้)"}
+                {t:"Loy Krathong 🌕", s:"Loy Krathong วันลอยกระทง"}, {t:"Banana leaf 🍃", s:"Banana leaf ใบตอง"}, 
+                {t:"Candle 🕯️", s:"Candle เทียน"}, {t:"Coin 🪙", s:"Coin เหรียญ"},
+                {t:"River 🌊", s:"River แม่น้ำ"}, {t:"Float ⛵", s:"Float ลอย"}, 
+                {t:"Full moon 🌕", s:"Full moon พระจันทร์เต็มดวง"}, {t:"Songkran 💦", s:"Songkran Festival เทศกาลสงกรานต์"},
+                {t:"Water gun 🔫", s:"Water gun ปืนฉีดน้ำ"}, {t:"Wet 💧", s:"Wet เปียก"}
             ],
             quiz: [
-                {q: "ถ้าต้องการถามจำนวน 'ไข่' (Eggs) ซึ่งนับได้ ต้องใช้คำถามใด?", a: "How many", o: ["How much", "How many", "How often", "How long"]},
-                {q: "ถ้าต้องการถามปริมาณ 'น้ำตาล' (Sugar) ซึ่งนับไม่ได้ ต้องใช้คำถามใด?", a: "How much", o: ["How many", "How much", "How big", "How old"]},
-                {q: "คำว่า 'มีข้าวเล็กน้อย' ข้าวเป็นนามนับไม่ได้ ต้องใช้คำใด?", a: "A little rice", o: ["A few rice", "A little rice", "Many rice", "A lot of rice"]},
-                {q: "คำว่า 'มีแอปเปิลอยู่ 2-3 ลูก' แอปเปิลนับได้ ต้องใช้คำใด?", a: "A few apples", o: ["A little apples", "Much apples", "A few apples", "Any apples"]},
-                {q: "เกลือ (Salt) และ ข้าว (Rice) จัดเป็นคำนามประเภทใด?", a: "Uncountable (นับไม่ได้)", o: ["Countable (นับได้)", "Uncountable (นับไม่ได้)", "นามเฉพาะ", "กริยา"]}
+                {q: "วัสดุหลักที่ใช้ทำกระทง (Krathong) คืออะไร?", a: "Banana leaf (ใบตอง)", o: ["Paper", "Plastic", "Banana leaf (ใบตอง)", "Glass"]},
+                {q: "วันลอยกระทง มักจะตรงกับคืนที่มีอะไร?", a: "Full moon (พระจันทร์เต็มดวง)", o: ["Sun", "Rain", "Full moon (พระจันทร์เต็มดวง)", "Star"]},
+                {q: "เทศกาลที่เราสาดน้ำและใช้ปืนฉีดน้ำ (Water gun) คือเทศกาลใด?", a: "Songkran Festival", o: ["Loy Krathong", "New Year", "Christmas", "Songkran Festival"]},
+                {q: "ถ้าไปเล่นน้ำสงกรานต์ ตัวเราจะเป็นอย่างไร?", a: "Wet (เปียก)", o: ["Dry (แห้ง)", "Hot (ร้อน)", "Wet (เปียก)", "Hungry (หิว)"]},
+                {q: "คำว่า 'ลอย' (เช่น ลอยกระทง) ภาษาอังกฤษใช้คำกริยาใด?", a: "Float", o: ["Swim", "Float", "Fly", "Run"]}
             ]
         },
         {
-            unit: "Unit 2: At the Supermarket",
-            title: "สัปดาห์ที่ 5: บรรจุภัณฑ์ต่างๆ (Containers)",
-            desc: "ของนับไม่ได้ ใส่ภาชนะก็นับได้นะ!",
+            unit: "Unit 3: Festivals",
+            title: "สัปดาห์ที่ 5: เทศกาลนานาชาติ",
+            desc: "เทศกาลสนุกๆ ทั่วโลก",
             items: [
-                {t:"Bottle 🍼", s:"A bottle of water น้ำหนึ่งขวด"}, {t:"Cup ☕", s:"A cup of tea ชาหนึ่งถ้วย"}, 
-                {t:"Glass 🥛", s:"A glass of milk นมหนึ่งแก้ว"}, {t:"Bowl 🥣", s:"A bowl of soup ซุปหนึ่งชาม"},
-                {t:"Slice 🍞", s:"A slice of bread ขนมปังหนึ่งแผ่น"}, {t:"Piece 🍰", s:"A piece of cake เค้กหนึ่งชิ้น"}, 
-                {t:"Packet 🍟", s:"A packet of chips มันฝรั่งทอดหนึ่งห่อ"}, {t:"Can 🥫", s:"A can of cola โคล่าหนึ่งกระป๋อง"},
-                {t:"Box 📦", s:"A box of cereal ซีเรียลหนึ่งกล่อง"}, {t:"Jar 🍯", s:"A jar of jam แยมหนึ่งโหล"}
+                {t:"Halloween 🎃", s:"Halloween วันฮาโลวีน"}, {t:"Ghost 👻", s:"Ghost ผี"}, 
+                {t:"Pumpkin 🎃", s:"Pumpkin ฟักทอง"}, {t:"Trick or Treat 🍬", s:"Trick or Treat หลอกหรือเลี้ยง (ประโยคขอขนม)"},
+                {t:"Christmas 🎄", s:"Christmas วันคริสต์มาส"}, {t:"Santa Claus 🎅", s:"Santa Claus ซานตาคลอส"}, 
+                {t:"Reindeer 🦌", s:"Reindeer กวางเรนเดียร์"}, {t:"Present 🎁", s:"Present ของขวัญ"},
+                {t:"Valentine's 💝", s:"Valentine's Day วันวาเลนไทน์"}, {t:"Heart ❤️", s:"Heart หัวใจ"}
             ],
             quiz: [
-                {q: "ถ้าเราจะซื้อ 'น้ำเปล่า' เรามักจะซื้อเป็นบรรจุภัณฑ์ใด?", a: "A bottle of water (ขวด)", o: ["A bowl of water", "A slice of water", "A bottle of water (ขวด)", "A piece of water"]},
-                {q: "ขนมปังแผ่นตัดบางๆ ภาษาอังกฤษใช้คำว่าอะไร?", a: "A slice of bread", o: ["A bowl of bread", "A glass of bread", "A slice of bread", "A can of bread"]},
-                {q: "เค้กที่ถูกตัดแบ่งมา 1 ชิ้น เรียกว่าอะไร?", a: "A piece of cake", o: ["A packet of cake", "A jar of cake", "A piece of cake", "A box of cake"]},
-                {q: "น้ำอัดลม (Cola) มักจะบรรจุอยู่ในอะไร?", a: "A can of cola (กระป๋อง)", o: ["A slice of cola", "A bowl of cola", "A piece of cola", "A can of cola (กระป๋อง)"]},
-                {q: "ซุป 1 ถ้วย (ชาม) ภาษาอังกฤษเรียกว่าอะไร?", a: "A bowl of soup", o: ["A plate of soup", "A bowl of soup", "A glass of soup", "A jar of soup"]}
+                {q: "ประโยคที่เด็กๆ ฝรั่งพูดเวลาไปเคาะประตูขอขนมในวันฮาโลวีน คืออะไร?", a: "Trick or Treat", o: ["Merry Christmas", "Happy Halloween", "Trick or Treat", "Thank you"]},
+                {q: "สิ่งใดเป็นสัญลักษณ์สำคัญของวันฮาโลวีน?", a: "Pumpkin (ฟักทอง)", o: ["Reindeer", "Present", "Pumpkin (ฟักทอง)", "Heart"]},
+                {q: "รถเลื่อนของซานตาคลอสถูกลากด้วยสัตว์ชนิดใด?", a: "Reindeer", o: ["Horse", "Dog", "Reindeer", "Cow"]},
+                {q: "สิ่งที่เรามอบให้กันในวันวาเลนไทน์มักมีรูปทรงอะไร?", a: "Heart (หัวใจ)", o: ["Pumpkin", "Star", "Heart (หัวใจ)", "Circle"]},
+                {q: "กล่องที่ห่อสวยๆ มีโบว์ผูก เรียกว่าอะไร?", a: "Present (ของขวัญ)", o: ["Ghost", "Reindeer", "Present (ของขวัญ)", "Pumpkin"]}
             ]
         },
         {
-            unit: "Unit 3: Health & Illness",
-            title: "สัปดาห์ที่ 6: อาการเจ็บป่วยที่ต้องไปหาหมอ",
-            desc: "อวัยวะไหนเจ็บ ก็เติม -ache เข้าไป",
+            unit: "Unit 4: Getting Around",
+            title: "สัปดาห์ที่ 6: การเดินทางและทิศทาง",
+            desc: "บอกทางให้ชาวต่างชาติได้ไหม?",
             items: [
-                {t:"Headache 🤕", s:"Headache ปวดหัว"}, {t:"Toothache 🦷", s:"Toothache ปวดฟัน"}, 
-                {t:"Earache 👂", s:"Earache ปวดหู"}, {t:"Backache 🔙", s:"Backache ปวดหลัง"},
-                {t:"Stomachache 🤢", s:"Stomachache ปวดท้อง"}, {t:"Sore throat 🧣", s:"Sore throat เจ็บคอ"}, 
-                {t:"Cold 🤧", s:"Cold เป็นหวัด"}, {t:"Fever 🥵", s:"Fever เป็นไข้"},
-                {t:"Cough 🗣️", s:"Cough ไอ"}, {t:"Broken arm 🦴", s:"Broken arm แขนหัก"}
+                {t:"Turn left ⬅️", s:"Turn left เลี้ยวซ้าย"}, {t:"Turn right ➡️", s:"Turn right เลี้ยวขวา"}, 
+                {t:"Go straight ⬆️", s:"Go straight on เดินตรงไป"}, {t:"Cross 🚶", s:"Cross the road ข้ามถนน"},
+                {t:"Corner 📐", s:"Corner หัวมุมถนน"}, {t:"Traffic light 🚦", s:"Traffic light สัญญาณไฟจราจร"}, 
+                {t:"Bridge 🌉", s:"Bridge สะพาน"}, {t:"Bus stop 🚏", s:"Bus stop ป้ายรถเมล์"},
+                {t:"Map 🗺️", s:"Map แผนที่"}, {t:"Lost 🧭", s:"Lost หลงทาง"}
             ],
             quiz: [
-                {q: "ถ้าคุณปู่ยกของหนักเกินไป ท่านอาจจะมีอาการอะไร?", a: "Backache (ปวดหลัง)", o: ["Headache", "Earache", "Backache (ปวดหลัง)", "Toothache"]},
-                {q: "ถ้าฟังเพลงเสียงดังมากๆ เป็นเวลานาน อาจทำให้เกิดอาการใด?", a: "Earache (ปวดหู)", o: ["Toothache", "Stomachache", "Backache", "Earache (ปวดหู)"]},
-                {q: "ถ้าหกล้มรุนแรงจนกระดูกที่แขนมีปัญหา เรียกว่าอาการใด?", a: "Broken arm (แขนหัก)", o: ["Fever", "Broken arm (แขนหัก)", "Cold", "Cough"]},
-                {q: "อาการระคายเคืองที่คอ กลืนน้ำลายลำบาก คืออาการใด?", a: "Sore throat (เจ็บคอ)", o: ["Headache", "Sore throat (เจ็บคอ)", "Toothache", "Backache"]},
-                {q: "คำว่า 'อาการไอ' ภาษาอังกฤษคือข้อใด?", a: "Cough", o: ["Cold", "Fever", "Cough", "Earache"]}
+                {q: "ถ้ามีชาวต่างชาติมาถามทาง แล้วเราจะบอกให้ 'เลี้ยวซ้าย' ต้องพูดว่าอะไร?", a: "Turn left", o: ["Turn right", "Turn left", "Go straight", "Cross the road"]},
+                {q: "การ 'ข้ามถนน' ภาษาอังกฤษใช้คำว่าอะไร?", a: "Cross the road", o: ["Go straight on", "Turn right", "Cross the road", "Corner"]},
+                {q: "ถ้าเราไปในที่ที่ไม่รู้จักและหาทางกลับไม่ได้ เรียกว่าอะไร?", a: "Lost (หลงทาง)", o: ["Bridge", "Map", "Lost (หลงทาง)", "Corner"]},
+                {q: "สัญญาณไฟจราจร มีชื่อภาษาอังกฤษว่าอะไร?", a: "Traffic light", o: ["Bus stop", "Traffic light", "Bridge", "Map"]},
+                {q: "จุดที่ถนนสองเส้นมาตัดกัน เรียกว่าอะไร?", a: "Corner (หัวมุม)", o: ["Bridge", "Bus stop", "Corner (หัวมุม)", "Cross"]}
             ]
         },
         {
-            unit: "Unit 3: Health & Illness",
-            title: "สัปดาห์ที่ 7: การให้คำแนะนำ (Giving Advice)",
-            desc: "ป่วยแบบนี้ ควรทำยังไงดี?",
+            unit: "Unit 4: Getting Around",
+            title: "สัปดาห์ที่ 7: สถานที่และคำบุพบท",
+            desc: "อยู่ตรงไหนของถนนนะ?",
             items: [
-                {t:"Should ✅", s:"Should ควรทำ"}, {t:"Shouldn't ❌", s:"Shouldn't ไม่ควรทำ"}, 
-                {t:"See a doctor 👨‍⚕️", s:"See a doctor ไปหาหมอ"}, {t:"Take medicine 💊", s:"Take medicine กินยา"},
-                {t:"Go to bed 🛌", s:"Go to bed เข้านอน/พักผ่อน"}, {t:"Rest 😌", s:"Rest พักผ่อน"}, 
-                {t:"Warm water 💧", s:"Drink warm water ดื่มน้ำอุ่น"}, {t:"Eat too much 🍕", s:"Eat too much กินเยอะเกินไป"},
-                {t:"Play outside 🏃", s:"Play outside เล่นข้างนอก"}, {t:"Hospital 🏥", s:"Hospital โรงพยาบาล"}
+                {t:"Opposite ↔️", s:"Opposite ตรงข้าม"}, {t:"Next to ➡️", s:"Next to ถัดจาก/ติดกับ"}, 
+                {t:"Behind 🔙", s:"Behind ข้างหลัง"}, {t:"Between ⏸️", s:"Between ระหว่าง (สิ่งสองสิ่ง)"},
+                {t:"In front of ⬇️", s:"In front of ข้างหน้า"}, {t:"Bakery 🥖", s:"Bakery ร้านเบเกอรี่"}, 
+                {t:"Pharmacy 💊", s:"Pharmacy ร้านขายยา"}, {t:"Cinema 🍿", s:"Cinema โรงภาพยนตร์"},
+                {t:"Library 📚", s:"Library ห้องสมุด"}, {t:"Bank 🏦", s:"Bank ธนาคาร"}
             ],
             quiz: [
-                {q: "ถ้าเพื่อนปวดหัว (Headache) เขาควรทำอะไร?", a: "Take medicine (กินยา) / Rest", o: ["Play outside", "Eat too much", "Take medicine (กินยา) / Rest", "Shouldn't rest"]},
-                {q: "ถ้าเพื่อนเป็นไข้ตัวร้อน (Fever) ไม่ควรทำสิ่งใด?", a: "Shouldn't play outside", o: ["Should rest", "Shouldn't play outside", "Should see a doctor", "Should drink warm water"]},
-                {q: "ถ้าเจ็บคอ (Sore throat) ควรดื่มอะไร?", a: "Warm water (น้ำอุ่น)", o: ["Cold water", "Cola", "Warm water (น้ำอุ่น)", "Coffee"]},
-                {q: "ถ้าปวดท้องมากๆ (Stomachache) คำแนะนำคืออะไร?", a: "Shouldn't eat too much.", o: ["Should play outside.", "Shouldn't rest.", "Shouldn't see a doctor.", "Shouldn't eat too much."]},
-                {q: "ถ้าป่วยหนักไม่ยอมหาย ควรไปพบใคร?", a: "See a doctor", o: ["See a teacher", "See a police", "See a doctor", "See a farmer"]}
+                {q: "ร้านเบเกอรี่อยู่ 'ตรงข้าม' กับธนาคาร ใช้คำใด?", a: "Opposite", o: ["Next to", "Opposite", "Behind", "Between"]},
+                {q: "โรงภาพยนตร์อยู่ 'ระหว่าง' ห้องสมุดและร้านขายยา ใช้คำใด?", a: "Between", o: ["Next to", "In front of", "Between", "Opposite"]},
+                {q: "คำว่า 'ข้างหน้า' ภาษาอังกฤษคือคำใด?", a: "In front of", o: ["Behind", "In front of", "Next to", "Between"]},
+                {q: "ถ้าเราป่วยและต้องการซื้อยา เราต้องไปที่ไหน?", a: "Pharmacy (ร้านขายยา)", o: ["Bakery", "Cinema", "Library", "Pharmacy (ร้านขายยา)"]},
+                {q: "สถานที่ที่เราสามารถไปยืมหนังสือมาอ่านได้ คือที่ไหน?", a: "Library", o: ["Bank", "Bakery", "Library", "Cinema"]}
             ]
         },
         {
-            unit: "Unit 4: Free Time",
-            title: "สัปดาห์ที่ 8: กิจกรรมยามว่าง (Hobbies)",
-            desc: "งานอดิเรกของคนเก่ง",
+            unit: "Unit 5: Weather & Seasons",
+            title: "สัปดาห์ที่ 8: ฤดูกาลและเสื้อผ้า",
+            desc: "ฤดูใบไม้ผลิ ร้อน ร่วง หนาว",
             items: [
-                {t:"Collect stamps ✉️", s:"Collect stamps สะสมแสตมป์"}, {t:"Internet 💻", s:"Surf the internet เล่นอินเทอร์เน็ต"}, 
-                {t:"Photos 📸", s:"Take photos ถ่ายรูป"}, {t:"Chess ♟️", s:"Play chess เล่นหมากรุก"},
-                {t:"Comics 📖", s:"Read comic books อ่านหนังสือการ์ตูน"}, {t:"Puzzles 🧩", s:"Do puzzles ต่อจิ๊กซอว์"}, 
-                {t:"Music 🎧", s:"Listen to music ฟังเพลง"}, {t:"Movies 🍿", s:"Watch movies ดูหนัง"},
-                {t:"Fishing 🎣", s:"Go fishing ไปตกปลา"}, {t:"Shopping 🛒", s:"Go shopping ไปช้อปปิ้ง"}
+                {t:"Spring 🌸", s:"Spring ฤดูใบไม้ผลิ"}, {t:"Summer 🏖️", s:"Summer ฤดูร้อน"}, 
+                {t:"Autumn 🍂", s:"Autumn ฤดูใบไม้ร่วง"}, {t:"Winter ⛄", s:"Winter ฤดูหนาว"},
+                {t:"Hot 🥵", s:"Hot ร้อน"}, {t:"Cold 🥶", s:"Cold หนาว"}, 
+                {t:"Warm 😊", s:"Warm อบอุ่น"}, {t:"Cool 🍃", s:"Cool เย็นสบาย"},
+                {t:"Sweater 🧶", s:"Sweater เสื้อกันหนาวไหมพรม"}, {t:"Sunglasses 🕶️", s:"Sunglasses แว่นกันแดด"}
             ],
             quiz: [
-                {q: "กิจกรรมที่ต้องใช้จิ๊กซอว์หลายๆ ชิ้นมาประกอบกัน คือกิจกรรมใด?", a: "Do puzzles", o: ["Play chess", "Take photos", "Do puzzles", "Collect stamps"]},
-                {q: "การหาข้อมูล หรือดูสิ่งต่างๆ บนเว็บไซต์ เรียกว่ากิจกรรมใด?", a: "Surf the internet", o: ["Listen to music", "Surf the internet", "Read comic books", "Go fishing"]},
-                {q: "ถ้าเพื่อนถือเบ็ดตกปลา เขาจะไปทำอะไร?", a: "Go fishing", o: ["Go shopping", "Go swimming", "Go fishing", "Take photos"]},
-                {q: "หมากรุก ภาษาอังกฤษเรียกว่าอะไร?", a: "Chess", o: ["Comics", "Puzzles", "Stamps", "Chess"]},
-                {q: "การอ่านหนังสือภาพที่มีช่องๆ สนุกๆ เรียกว่าอะไร?", a: "Read comic books", o: ["Read a newspaper", "Read comic books", "Watch movies", "Listen to music"]}
+                {q: "ฤดูที่ใบไม้เปลี่ยนเป็นสีส้มแดงและร่วงหล่นลงมา คือฤดูใด?", a: "Autumn (ฤดูใบไม้ร่วง)", o: ["Spring", "Summer", "Autumn (ฤดูใบไม้ร่วง)", "Winter"]},
+                {q: "ในฤดูใบไม้ผลิ (Spring) อากาศมักจะเป็นอย่างไร?", a: "Warm (อบอุ่น)", o: ["Hot (ร้อน)", "Cold (หนาว)", "Warm (อบอุ่น)", "Cool (เย็นสบาย)"]},
+                {q: "ฤดูใดที่มีอากาศ Hot (ร้อน) มากที่สุด?", a: "Summer", o: ["Spring", "Autumn", "Winter", "Summer"]},
+                {q: "ถ้าอากาศ Cold (หนาว) เราควรใส่เสื้อผ้าแบบใด?", a: "Sweater", o: ["T-shirt", "Shorts", "Sunglasses", "Sweater"]},
+                {q: "ในวันแดดจ้า ฤดูร้อน เราควรใส่อะไรเพื่อถนอมสายตา?", a: "Sunglasses", o: ["Sweater", "Gloves", "Scarf", "Sunglasses"]}
             ]
         },
         {
             unit: "ทบทวนบทเรียน (Mid-term)",
-            title: "สัปดาห์ที่ 9: ทบทวนครึ่งเทอม 1",
+            title: "สัปดาห์ที่ 9: ทบทวนครึ่งเทอม 2",
             desc: "ทดสอบความรู้ที่เรียนมา",
             items: [
-                {t:"Review 🔄", s:"Review ทบทวน"}, {t:"Chore 🧹", s:"Chore งานบ้าน"}, 
-                {t:"Rarely 🤏", s:"Rarely แทบจะไม่"}, {t:"Onion 🧅", s:"Onion หัวหอม"},
-                {t:"Bottle 🍼", s:"Bottle ขวด"}, {t:"Medicine 💊", s:"Medicine ยา"}, 
-                {t:"Collect ✉️", s:"Collect สะสม"}, {t:"Often 🔁", s:"Often บ่อยๆ"},
-                {t:"How much ❓", s:"How much มากเท่าไหร่"}, {t:"Backache 🔙", s:"Backache ปวดหลัง"}
+                {t:"Review 🔄", s:"Review ทบทวน"}, {t:"Played ⚽", s:"Played เล่น (อดีต)"}, 
+                {t:"Went 🚶", s:"Went ไป (อดีต)"}, {t:"Waterfall 🏞️", s:"Waterfall น้ำตก"},
+                {t:"Float ⛵", s:"Float ลอย"}, {t:"Pumpkin 🎃", s:"Pumpkin ฟักทอง"}, 
+                {t:"Go straight ⬆️", s:"Go straight เดินตรงไป"}, {t:"Opposite ↔️", s:"Opposite ตรงข้าม"},
+                {t:"Winter ⛄", s:"Winter ฤดูหนาว"}, {t:"Cool 🍃", s:"Cool เย็นสบาย"}
             ],
             quiz: [
-                {q: "คำว่า 'งานบ้าน' ภาษาอังกฤษเรียกว่าอะไร?", a: "Chore", o: ["Job", "Work", "Hobby", "Chore"]},
-                {q: "คำว่า 'แทบจะไม่เคยทำ' (10%) คือคำใด?", a: "Rarely", o: ["Always", "Often", "Usually", "Rarely"]},
-                {q: "หัวหอม ภาษาอังกฤษคืออะไร?", a: "Onion", o: ["Garlic", "Cabbage", "Onion", "Cucumber"]},
-                {q: "นามนับไม่ได้ (เช่น นม, น้ำตาล) ต้องใช้คำถามใดในการถามปริมาณ?", a: "How much", o: ["How many", "How old", "How much", "How often"]},
-                {q: "อาการ 'ปวดหลัง' ภาษาอังกฤษคือข้อใด?", a: "Backache", o: ["Headache", "Earache", "Backache", "Stomachache"]}
+                {q: "เมื่อวานฉัน 'ไป' ทะเล คำว่า 'ไป' ในอดีตคือคำใด?", a: "Went", o: ["Go", "Goed", "Went", "Gone"]},
+                {q: "กระทงทำมาจากใบตอง นำไปทำอะไรในวันลอยกระทง?", a: "Float (ลอย)", o: ["Fly", "Float (ลอย)", "Swim", "Run"]},
+                {q: "สัญลักษณ์ผีฟักทองในวันฮาโลวีน เรียกว่าอะไร?", a: "Pumpkin", o: ["Ghost", "Bat", "Spider", "Pumpkin"]},
+                {q: "ถ้าต้องการบอกให้ 'เดินตรงไป' ต้องพูดว่าอะไร?", a: "Go straight", o: ["Turn left", "Turn right", "Go straight", "Cross"]},
+                {q: "อากาศเย็นสบาย (ไม่ถึงกับหนาวจัด) ภาษาอังกฤษคือคำใด?", a: "Cool", o: ["Cold", "Warm", "Hot", "Cool"]}
             ]
         },
         {
-            unit: "Unit 4: Free Time",
-            title: "สัปดาห์ที่ 10: กีฬาแบบ Play / Go / Do",
-            desc: "กีฬาไหนใช้กริยาตัวไหนนะ?",
+            unit: "Unit 6: Occupations",
+            title: "สัปดาห์ที่ 10: อาชีพในฝัน",
+            desc: "คุณอยากเป็นอะไรเมื่อโตขึ้น?",
             items: [
-                {t:"Play football ⚽", s:"Play football เล่นฟุตบอล (มีลูกบอล/แข่งเป็นทีม)"}, {t:"Play tennis 🎾", s:"Play tennis เล่นเทนนิส"}, 
-                {t:"Play badminton 🏸", s:"Play badminton เล่นแบดมินตัน"}, {t:"Go swimming 🏊", s:"Go swimming ไปว่ายน้ำ (เติม -ing)"},
-                {t:"Go running 🏃", s:"Go running ไปวิ่ง"}, {t:"Go cycling 🚲", s:"Go cycling ไปปั่นจักรยาน"}, 
-                {t:"Do yoga 🧘‍♀️", s:"Do yoga เล่นโยคะ (กีฬาเดี่ยว/ศิลปะป้องกันตัว)"}, {t:"Do judo 🥋", s:"Do judo เล่นยูโด"},
-                {t:"Do karate 🥋", s:"Do karate เล่นคาราเต้"}, {t:"Win 🏆", s:"Win ชนะ"}
+                {t:"Reporter 🎤", s:"Reporter ผู้สื่อข่าว"}, {t:"Astronaut 🧑‍🚀", s:"Astronaut นักบินอวกาศ"}, 
+                {t:"Firefighter 🧑‍🚒", s:"Firefighter นักดับเพลิง"}, {t:"Dentist 🦷", s:"Dentist หมอฟัน"},
+                {t:"Mechanic 🔧", s:"Mechanic ช่างยนต์"}, {t:"Pilot ✈️", s:"Pilot นักบิน"}, 
+                {t:"Artist 🧑‍🎨", s:"Artist ศิลปิน/นักวาด"}, {t:"Chef 🧑‍🍳", s:"Chef พ่อครัวใหญ่"},
+                {t:"Job 💼", s:"Job อาชีพ"}, {t:"Work 🛠️", s:"Work ทำงาน"}
             ],
             quiz: [
-                {q: "กีฬาที่เป็นศิลปะป้องกันตัว เช่น ยูโด คาราเต้ จะใช้คำกริยาใดนำหน้า?", a: "Do (เช่น Do judo)", o: ["Play", "Go", "Make", "Do (เช่น Do judo)"]},
-                {q: "กีฬาที่ลงท้ายด้วย -ing เช่น swimming, running จะใช้กริยาใด?", a: "Go (เช่น Go swimming)", o: ["Play", "Do", "Go (เช่น Go swimming)", "Have"]},
-                {q: "กีฬาที่มีลูกบอลหรือแข่งขันเป็นทีม จะใช้กริยาใด?", a: "Play (เช่น Play football)", o: ["Go", "Do", "Play (เช่น Play football)", "Make"]},
-                {q: "การออกกำลังกายแบบ 'โยคะ' ต้องพูดว่าอย่างไร?", a: "Do yoga", o: ["Play yoga", "Go yoga", "Do yoga", "Make yoga"]},
-                {q: "ถ้าเราเล่นกีฬาแล้วได้คะแนนมากกว่าคู่แข่ง เรียกว่าอะไร?", a: "Win (ชนะ)", o: ["Lose", "Run", "Hit", "Win (ชนะ)"]}
+                {q: "อาชีพใดที่ต้องซ่อมเครื่องยนต์และรถยนต์?", a: "Mechanic (ช่างยนต์)", o: ["Reporter", "Dentist", "Mechanic (ช่างยนต์)", "Pilot"]},
+                {q: "คนที่เดินทางไปนอกโลก เรียกว่าอะไร?", a: "Astronaut", o: ["Firefighter", "Artist", "Astronaut", "Chef"]},
+                {q: "ถ้าเราชอบทำอาหารอร่อยๆ เราอยากเป็นอะไร?", a: "Chef", o: ["Pilot", "Dentist", "Mechanic", "Chef"]},
+                {q: "คนที่ขับเครื่องบินพกพาผู้โดยสารไปส่ง คืออาชีพใด?", a: "Pilot", o: ["Astronaut", "Reporter", "Pilot", "Artist"]},
+                {q: "ใครเป็นคนถือไมโครโฟนรายงานข่าวทางทีวี?", a: "Reporter", o: ["Firefighter", "Dentist", "Reporter", "Mechanic"]}
             ]
         },
         {
-            unit: "Unit 5: Around Town",
-            title: "สัปดาห์ที่ 11: สถานที่สำคัญในเมือง",
-            desc: "คำศัพท์สถานที่ต่างๆ ที่เราต้องรู้จัก",
+            unit: "Unit 6: Occupations",
+            title: "สัปดาห์ที่ 11: สถานที่ทำงานของอาชีพต่างๆ",
+            desc: "พวกเขาทำงานที่ไหนกันนะ?",
             items: [
-                {t:"Bakery 🥖", s:"Bakery ร้านเบเกอรี่"}, {t:"Pharmacy 💊", s:"Pharmacy ร้านขายยา"}, 
-                {t:"Post office 📮", s:"Post office ที่ทำการไปรษณีย์"}, {t:"Police station 🚓", s:"Police station สถานีตำรวจ"},
-                {t:"Fire station 🚒", s:"Fire station สถานีดับเพลิง"}, {t:"Museum 🏛️", s:"Museum พิพิธภัณฑ์"}, 
-                {t:"Library 📚", s:"Library ห้องสมุด"}, {t:"Bank 🏦", s:"Bank ธนาคาร"},
-                {t:"Supermarket 🛒", s:"Supermarket ซูเปอร์มาร์เก็ต"}, {t:"Cinema 🍿", s:"Cinema โรงภาพยนตร์"}
+                {t:"Want to be 🌟", s:"I want to be a... ฉันอยากจะเป็น..."}, {t:"Hospital 🏥", s:"Hospital โรงพยาบาล"}, 
+                {t:"Fire station 🚒", s:"Fire station สถานีดับเพลิง"}, {t:"Space 🌌", s:"Space อวกาศ"},
+                {t:"Studio 🎨", s:"Studio สตูดิโอศิลปะ"}, {t:"Kitchen 🍳", s:"Kitchen ห้องครัว"}, 
+                {t:"Restaurant 🍽️", s:"Restaurant ร้านอาหาร"}, {t:"Clinic 🦷", s:"Clinic คลินิก"},
+                {t:"Airport ✈️", s:"Airport สนามบิน"}, {t:"News 📺", s:"News ข่าว"}
             ],
             quiz: [
-                {q: "ถ้าเราป่วยและต้องการซื้อยา (Medicine) เราต้องไปที่ไหน?", a: "Pharmacy (ร้านขายยา)", o: ["Bakery", "Pharmacy (ร้านขายยา)", "Bank", "Museum"]},
-                {q: "ถ้าเราต้องการส่งจดหมายหรือพัสดุ เราต้องไปที่ไหน?", a: "Post office", o: ["Police station", "Fire station", "Post office", "Library"]},
-                {q: "สถานีดับเพลิง ภาษาอังกฤษเรียกว่าอะไร?", a: "Fire station", o: ["Police station", "Gas station", "Fire station", "Train station"]},
-                {q: "สถานที่ที่เราสามารถเข้าไปอ่านหนังสือและยืมหนังสือได้ คือที่ใด?", a: "Library", o: ["Museum", "Cinema", "Bakery", "Library"]},
-                {q: "โรงภาพยนตร์ที่ใช้ดูหนังจอใหญ่ๆ เรียกว่าอะไร?", a: "Cinema", o: ["Supermarket", "Bank", "Museum", "Cinema"]}
+                {q: "ถ้าเราอยากเป็นนักบิน (Pilot) เราจะไปทำงานที่ไหน?", a: "Airport (สนามบิน)", o: ["Hospital", "Fire station", "Airport (สนามบิน)", "Kitchen"]},
+                {q: "ถ้าเพื่อนบอกว่า 'I want to be a dentist' เขาอยากเป็นอะไร?", a: "หมอฟัน", o: ["คุณหมอทั่วไป", "หมอฟัน", "พยาบาล", "ช่างยนต์"]},
+                {q: "นักดับเพลิง (Firefighter) สแตนด์บายรอทำงานอยู่ที่ไหน?", a: "Fire station", o: ["Police station", "Hospital", "Fire station", "Studio"]},
+                {q: "เชฟ (Chef) ทำงานปรุงอาหารอยู่ในส่วนใดของร้านอาหาร?", a: "Kitchen (ห้องครัว)", o: ["Studio", "Clinic", "Kitchen (ห้องครัว)", "Space"]},
+                {q: "ศิลปิน (Artist) มักจะสร้างสรรค์ผลงานอยู่ที่ไหน?", a: "Studio", o: ["Airport", "Restaurant", "Studio", "Clinic"]}
             ]
         },
         {
-            unit: "Unit 5: Around Town",
-            title: "สัปดาห์ที่ 12: การบอกทิศทาง (Directions)",
-            desc: "เดินไปทางไหนถึงจะถึงนะ?",
+            unit: "Unit 7: Wild Animals",
+            title: "สัปดาห์ที่ 12: สัตว์ป่าและถิ่นที่อยู่",
+            desc: "สัตว์พวกนี้อยู่ที่ไหนในโลก?",
             items: [
-                {t:"Turn left ⬅️", s:"Turn left เลี้ยวซ้าย"}, {t:"Turn right ➡️", s:"Turn right เลี้ยวขวา"}, 
-                {t:"Go straight ⬆️", s:"Go straight เดินตรงไป"}, {t:"Go past 🚶", s:"Go past เดินผ่าน"},
-                {t:"On the corner 📐", s:"On the corner ตรงหัวมุม"}, {t:"Opposite ↔️", s:"Opposite ตรงข้าม"}, 
-                {t:"Next to ➡️", s:"Next to ถัดจาก/ติดกับ"}, {t:"Between ⏸️", s:"Between อยู่ระหว่าง (สองสิ่ง)"},
-                {t:"Crosswalk 🦓", s:"Crosswalk ทางม้าลาย"}, {t:"Map 🗺️", s:"Map แผนที่"}
+                {t:"Desert 🏜️", s:"Desert ทะเลทราย"}, {t:"Jungle 🌳", s:"Jungle ป่าทึบ"}, 
+                {t:"Ocean 🌊", s:"Ocean มหาสมุทร"}, {t:"Grassland 🌾", s:"Grassland ทุ่งหญ้า"},
+                {t:"Camel 🐪", s:"Camel อูฐ"}, {t:"Whale 🐳", s:"Whale วาฬ"}, 
+                {t:"Cheetah 🐆", s:"Cheetah เสือชีตาห์"}, {t:"Eagle 🦅", s:"Eagle นกอินทรี"},
+                {t:"Habitat 🏡", s:"Habitat ถิ่นที่อยู่อาศัย"}, {t:"Wild 🐾", s:"Wild ป่า/ธรรมชาติ"}
             ],
             quiz: [
-                {q: "ถ้าเพื่อนถามทาง แล้วเราจะบอกว่า 'เดินผ่านโรงเรียนไป' ต้องพูดว่าอย่างไร?", a: "Go past the school.", o: ["Go straight to school.", "Turn left at school.", "Go past the school.", "Opposite the school."]},
-                {q: "สถานที่ที่ตั้งอยู่ตรงทางแยก หรือจุดตัดของถนน 2 สาย เรียกว่าอะไร?", a: "On the corner", o: ["Next to", "Between", "On the corner", "Turn right"]},
-                {q: "คำว่า 'เลี้ยวขวา' ภาษาอังกฤษคือคำใด?", a: "Turn right", o: ["Turn left", "Go straight", "Go past", "Turn right"]},
-                {q: "ทางสำหรับให้คนเดินข้ามถนนอย่างปลอดภัย เรียกว่าอะไร?", a: "Crosswalk", o: ["Map", "Corner", "Crosswalk", "Straight"]},
-                {q: "กระดาษหรือแอปที่แสดงเส้นทางและสถานที่ต่างๆ คืออะไร?", a: "Map (แผนที่)", o: ["Book", "Map (แผนที่)", "Ticket", "Picture"]}
+                {q: "สถานที่ที่ร้อน แห้งแล้ง และมีทรายจำนวนมาก คือที่ใด?", a: "Desert (ทะเลทราย)", o: ["Jungle", "Ocean", "Desert (ทะเลทราย)", "Grassland"]},
+                {q: "วาฬ (Whale) และ ฉลาม อาศัยอยู่ที่ไหน?", a: "Ocean (มหาสมุทร)", o: ["Jungle", "Desert", "Ocean (มหาสมุทร)", "Grassland"]},
+                {q: "เสือชีตาห์และสิงโต มักอาศัยอยู่ในที่ราบโล่งๆ เรียกว่าอะไร?", a: "Grassland (ทุ่งหญ้า)", o: ["Desert", "Ocean", "Jungle", "Grassland (ทุ่งหญ้า)"]},
+                {q: "สัตว์ชนิดใดปรับตัวให้อยู่ในทะเลทรายได้ดีและมีโหนก?", a: "Camel (อูฐ)", o: ["Cheetah", "Eagle", "Camel (อูฐ)", "Whale"]},
+                {q: "คำว่า 'ถิ่นที่อยู่อาศัย' ของสัตว์ ภาษาอังกฤษคืออะไร?", a: "Habitat", o: ["Wild", "House", "Habitat", "Zoo"]}
             ]
         },
         {
-            unit: "Unit 6: Animals & Habitats",
-            title: "สัปดาห์ที่ 13: สัตว์ป่าระดับแอดวานซ์",
-            desc: "สัตว์เด่นๆ จากทั่วโลก",
+            unit: "Unit 7: Wild Animals",
+            title: "สัปดาห์ที่ 13: สัตว์กินพืชหรือสัตว์กินเนื้อ?",
+            desc: "สัตว์แต่ละชนิดกินอะไรเป็นอาหาร?",
             items: [
-                {t:"Cheetah 🐆", s:"Cheetah เสือชีตาห์"}, {t:"Rhino 🦏", s:"Rhino แรด"}, 
-                {t:"Gorilla 🦍", s:"Gorilla กอริลลา"}, {t:"Camel 🐪", s:"Camel อูฐ"},
-                {t:"Ostrich 🪶", s:"Ostrich นกกระจอกเทศ"}, {t:"Dolphin 🐬", s:"Dolphin โลมา"}, 
-                {t:"Shark 🦈", s:"Shark ฉลาม"}, {t:"Eagle 🦅", s:"Eagle นกอินทรี"},
-                {t:"Jungle 🌳", s:"Jungle ป่าทึบ"}, {t:"Desert 🏜️", s:"Desert ทะเลทราย"}
+                {t:"Meat 🥩", s:"Meat เนื้อสัตว์"}, {t:"Grass 🌾", s:"Grass หญ้า"}, 
+                {t:"Leaves 🍃", s:"Leaves ใบไม้"}, {t:"Fruit 🍎", s:"Fruit ผลไม้"},
+                {t:"Hunt 🐅", s:"Hunt ล่าเหยื่อ"}, {t:"Carnivore 🥩", s:"Carnivore สัตว์กินเนื้อ"}, 
+                {t:"Herbivore 🌿", s:"Herbivore สัตว์กินพืช"}, {t:"Sharp teeth 🦷", s:"Sharp teeth ฟันแหลมคม"},
+                {t:"Neck 🦒", s:"Neck คอ"}, {t:"Trunk 🐘", s:"Trunk งวงช้าง"}
             ],
             quiz: [
-                {q: "สัตว์ชนิดใดที่มีโหนกที่หลัง และอาศัยอยู่ในทะเลทราย (Desert)?", a: "Camel (อูฐ)", o: ["Cheetah", "Rhino", "Camel (อูฐ)", "Gorilla"]},
-                {q: "นกที่ตัวใหญ่ที่สุด วิ่งเร็วมาก แต่บินไม่ได้ คืออะไร?", a: "Ostrich (นกกระจอกเทศ)", o: ["Eagle", "Parrot", "Ostrich (นกกระจอกเทศ)", "Penguin"]},
-                {q: "สัตว์ชนิดใดที่มีนออยู่ตรงจมูก ผิวหนังหนาและตัวใหญ่มาก?", a: "Rhino (แรด)", o: ["Hippo", "Gorilla", "Elephant", "Rhino (แรด)"]},
-                {q: "นกล่าเหยื่อที่มีสายตาแหลมคม บินได้สูงมาก คืออะไร?", a: "Eagle (นกอินทรี)", o: ["Ostrich", "Eagle (นกอินทรี)", "Parrot", "Duck"]},
-                {q: "ลิงสายพันธุ์ที่มีขนาดใหญ่และแข็งแรงมาก คืออะไร?", a: "Gorilla", o: ["Monkey", "Gorilla", "Chimpanzee", "Camel"]}
+                {q: "สัตว์ที่กิน 'เนื้อสัตว์' (Meat) เป็นหลัก เรียกว่าอะไร?", a: "Carnivore", o: ["Herbivore", "Carnivore", "Vegetarian", "Hunter"]},
+                {q: "สัตว์ที่กิน 'พืชและใบไม้' เป็นอาหาร เรียกว่าอะไร?", a: "Herbivore", o: ["Carnivore", "Herbivore", "Hunter", "Wild"]},
+                {q: "สัตว์กินเนื้อ มักจะมีลักษณะใดเพื่อใช้ในการกินอาหาร?", a: "Sharp teeth (ฟันแหลมคม)", o: ["Long neck", "Trunk", "Sharp teeth (ฟันแหลมคม)", "Big ears"]},
+                {q: "ยีราฟ มีอวัยวะใดที่ยาวเพื่อใช้กินใบไม้บนต้นสูงๆ?", a: "Neck (คอ)", o: ["Trunk", "Tail", "Neck (คอ)", "Legs"]},
+                {q: "ช้างใช้อวัยวะใด (ที่ทำหน้าที่คล้ายจมูกและมือ) ในการหยิบจับอาหาร?", a: "Trunk (งวงช้าง)", o: ["Neck", "Sharp teeth", "Tail", "Trunk (งวงช้าง)"]}
             ]
         },
         {
-            unit: "Unit 6: Animals & Habitats",
-            title: "สัปดาห์ที่ 14: การเปรียบเทียบขั้นกว่า (Comparatives)",
-            desc: "ใครเร็วกว่า ใครสูงกว่า ใครหนักกว่า?",
+            unit: "Unit 8: Phonics Fun",
+            title: "สัปดาห์ที่ 14: สระคู่ (Vowel Teams: oa, ow)",
+            desc: "สระคู่ที่ออกเสียง 'โอ'",
             items: [
-                {t:"Taller 🦒", s:"Taller สูงกว่า"}, {t:"Shorter 🐢", s:"Shorter เตี้ยกว่า/สั้นกว่า"}, 
-                {t:"Faster 🐆", s:"Faster เร็วกว่า"}, {t:"Slower 🐌", s:"Slower ช้ากว่า"},
-                {t:"Bigger 🐘", s:"Bigger ใหญ่กว่า (เบิ้ล g)"}, {t:"Smaller 🐜", s:"Smaller เล็กกว่า"}, 
-                {t:"Heavier 🦏", s:"Heavier หนักกว่า (เปลี่ยน y เป็น i เติม er)"}, {t:"Lighter 🪶", s:"Lighter เบากว่า"},
-                {t:"More dangerous 🦈", s:"More dangerous อันตรายกว่า (คำยาวใช้ more)"}, {t:"More beautiful 🦋", s:"More beautiful สวยกว่า"}
+                {t:"OA 🗣️", s:"OA โอ (มักอยู่กลางคำ)"}, {t:"OW 🗣️", s:"OW โอ (มักอยู่ท้ายคำ)"}, 
+                {t:"Boat ⛵", s:"Boat เรือ"}, {t:"Coat 🧥", s:"Coat เสื้อโค้ท"},
+                {t:"Goat 🐐", s:"Goat แพะ"}, {t:"Soap 🧼", s:"Soap สบู่"}, 
+                {t:"Snow ❄️", s:"Snow หิมะ"}, {t:"Yellow 🟡", s:"Yellow สีเหลือง"},
+                {t:"Window 🪟", s:"Window หน้าต่าง"}, {t:"Row 🛶", s:"Row พายเรือ"}
             ],
             quiz: [
-                {q: "ถ้าต้องการบอกว่ายีราฟ 'สูงกว่า' ม้าลาย ต้องใช้คำใด?", a: "Taller", o: ["Shorter", "Faster", "Bigger", "Taller"]},
-                {q: "แรด 'หนักกว่า' สุนัข คำว่าหนักกว่าเขียนอย่างไร?", a: "Heavier", o: ["Heaver", "Heavyer", "Heavier", "More heavy"]},
-                {q: "ฉลาม 'อันตรายกว่า' โลมา คำว่าอันตรายเป็นคำยาว ต้องเติมอะไร?", a: "More dangerous", o: ["Dangerouser", "More dangerous", "Most dangerous", "Dangerouser than"]},
-                {q: "ผีเสื้อ 'สวยกว่า' แมลงวัน คำว่าสวยกว่าคือข้อใด?", a: "More beautiful", o: ["Beautifuler", "More beautiful", "Most beautiful", "Very beautiful"]},
-                {q: "เสือชีตาห์ 'เร็วกว่า' เต่า คำว่าเร็วกว่าคือข้อใด?", a: "Faster", o: ["Slower", "Faster", "Lighter", "Taller"]}
+                {q: "คำว่า 'Boat' (เรือ) สะกดด้วยสระคู่ตัวใด?", a: "oa", o: ["ow", "oa", "oe", "oo"]},
+                {q: "คำว่า 'Snow' (หิมะ) ออกเสียงสระเหมือนคำใด?", a: "Window", o: ["Boat", "Window", "Cow", "Now"]},
+                {q: "สีเหลือง ภาษาอังกฤษเขียนและออกเสียงสระอย่างไร?", a: "Yellow (สระโอ)", o: ["Yellaw", "Yellew", "Yellow (สระโอ)", "Yelloo"]},
+                {q: "เสื้อโค้ทกันหนาว ภาษาอังกฤษสะกดด้วยสระตัวใด?", a: "Coat (oa)", o: ["Cowt", "Cote", "Cout", "Coat (oa)"]},
+                {q: "สบู่ (Soap) ออกเสียงสระตรงกับคำใด?", a: "Goat", o: ["Snow", "Window", "Yellow", "Goat"]}
             ]
         },
         {
-            unit: "Unit 6: Animals & Habitats",
-            title: "สัปดาห์ที่ 15: การเปรียบเทียบขั้นสูงสุด (Superlatives)",
-            desc: "ที่สุดในโลก!",
+            unit: "Unit 8: Phonics Fun",
+            title: "สัปดาห์ที่ 15: อักษรนำ (Consonant Blends: st, sp, sn)",
+            desc: "ออกเสียงให้ชัดเจน",
             items: [
-                {t:"The tallest 🦒", s:"The tallest สูงที่สุด"}, {t:"The shortest 🐢", s:"The shortest เตี้ยที่สุด/สั้นที่สุด"}, 
-                {t:"The fastest 🐆", s:"The fastest เร็วที่สุด"}, {t:"The slowest 🐌", s:"The slowest ช้าที่สุด"},
-                {t:"The biggest 🐘", s:"The biggest ใหญ่ที่สุด"}, {t:"The smallest 🐜", s:"The smallest เล็กที่สุด"}, 
-                {t:"The heaviest 🐳", s:"The heaviest หนักที่สุด"}, {t:"The lightest 🪶", s:"The lightest เบาที่สุด"},
-                {t:"The most dangerous 🦈", s:"The most dangerous อันตรายที่สุด"}, {t:"The most beautiful 🦚", s:"The most beautiful สวยที่สุด"}
+                {t:"ST 🗣️", s:"ST สต"}, {t:"Star ⭐", s:"Star ดวงดาว"}, 
+                {t:"Stop 🛑", s:"Stop หยุด"}, {t:"Stone 🪨", s:"Stone ก้อนหิน"},
+                {t:"SP 🗣️", s:"SP สป"}, {t:"Spoon 🥄", s:"Spoon ช้อน"}, 
+                {t:"Spin 🌀", s:"Spin หมุน"}, {t:"SN 🗣️", s:"SN สน"},
+                {t:"Snake 🐍", s:"Snake งู"}, {t:"Snack 🥨", s:"Snack ขนมขบเคี้ยว"}
             ],
             quiz: [
-                {q: "วาฬสีน้ำเงินเป็นสัตว์ที่ 'ใหญ่ที่สุด' ในโลก ใช้คำใด?", a: "The biggest", o: ["The tallest", "The biggest", "The smallest", "Bigger"]},
-                {q: "เสือชีตาห์เป็นสัตว์วิ่ง 'เร็วที่สุด' ในโลก ใช้คำใด?", a: "The fastest", o: ["Faster", "The slowest", "The tallest", "The fastest"]},
-                {q: "การเปรียบเทียบขั้นสูงสุด (Superlative) จะต้องมีคำใดนำหน้าเสมอ?", a: "The", o: ["A", "An", "The", "Than"]},
-                {q: "ฉลามขาวเป็นสัตว์ที่ 'อันตรายที่สุด' ใช้คำใด?", a: "The most dangerous", o: ["More dangerous", "The most dangerous", "Dangerousest", "The dangerous"]},
-                {q: "ขนนก เป็นสิ่งของที่ 'เบาที่สุด' เมื่อเทียบกับหิน ใช้คำใด?", a: "The lightest", o: ["The heaviest", "The smallest", "The lightest", "Lighter"]}
+                {q: "คำว่า 'ดาว' (Star) ขึ้นต้นด้วยอักษรคู่ใด?", a: "st", o: ["sp", "sn", "st", "sl"]},
+                {q: "คำว่า 'ช้อน' ภาษาอังกฤษคือคำใด?", a: "Spoon", o: ["Spin", "Stop", "Stone", "Spoon"]},
+                {q: "งู ภาษาอังกฤษขึ้นต้นด้วยอักษรคู่ใด?", a: "sn (Snake)", o: ["sp", "st", "sn (Snake)", "sm"]},
+                {q: "คำว่า 'ขนมขบเคี้ยว' เขียนคล้ายงู แต่แปลว่าขนม คือคำใด?", a: "Snack", o: ["Snake", "Snack", "Spin", "Stone"]},
+                {q: "ป้ายหยุดจราจร ภาษาอังกฤษคือข้อใด?", a: "Stop", o: ["Star", "Spoon", "Stop", "Stone"]}
             ]
         },
         {
             unit: "บทสรุปและทดสอบปลายภาค",
-            title: "สัปดาห์ที่ 16: ทบทวนก่อนปิดเทอม 1",
-            desc: "ทดสอบความรู้ ป.5 เทอม 1",
+            title: "สัปดาห์ที่ 16: ทบทวนก่อนปิดเทอม 2",
+            desc: "ทดสอบความรู้ ป.5 เทอม 2",
             items: [
-                {t:"Review 🔄", s:"Review ทบทวน"}, {t:"Pharmacy 💊", s:"Pharmacy ร้านขายยา"}, 
-                {t:"Go straight ⬆️", s:"Go straight เดินตรงไป"}, {t:"Cheetah 🐆", s:"Cheetah เสือชีตาห์"},
-                {t:"The fastest 🐆💨", s:"The fastest เร็วที่สุด"}, {t:"Play tennis 🎾", s:"Play tennis เล่นเทนนิส"}, 
-                {t:"Go swimming 🏊", s:"Go swimming ไปว่ายน้ำ"}, {t:"Do yoga 🧘‍♀️", s:"Do yoga เล่นโยคะ"},
-                {t:"More beautiful 🦋", s:"More beautiful สวยกว่า"}, {t:"The biggest 🐘", s:"The biggest ใหญ่ที่สุด"}
+                {t:"Review 🔄", s:"Review ทบทวน"}, {t:"Ate 🍕", s:"Ate กิน (อดีต)"}, 
+                {t:"Songkran 💦", s:"Songkran วันสงกรานต์"}, {t:"Opposite ↔️", s:"Opposite ตรงข้าม"},
+                {t:"Spring 🌸", s:"Spring ฤดูใบไม้ผลิ"}, {t:"Mechanic 🔧", s:"Mechanic ช่างยนต์"}, 
+                {t:"Airport ✈️", s:"Airport สนามบิน"}, {t:"Desert 🏜️", s:"Desert ทะเลทราย"},
+                {t:"Carnivore 🥩", s:"Carnivore สัตว์กินเนื้อ"}, {t:"Window 🪟", s:"Window หน้าต่าง (ow)"}
             ],
             quiz: [
-                {q: "ร้านที่ขายยา (Medicine) เรียกว่าอะไร?", a: "Pharmacy", o: ["Bakery", "Museum", "Pharmacy", "Library"]},
-                {q: "คำสั่งบอกให้ 'เดินตรงไป' คือคำใด?", a: "Go straight", o: ["Turn left", "Turn right", "Go past", "Go straight"]},
-                {q: "ถ้ากริยาที่เติม -ing (เช่น swimming, running) ต้องใช้คำกริยาใดนำหน้าเพื่อบอกการเล่นกีฬา?", a: "Go (เช่น Go swimming)", o: ["Play", "Do", "Make", "Go (เช่น Go swimming)"]},
-                {q: "นกยูง (Peacock) 'สวยกว่า' ไก่ (Hen) คำว่าสวยกว่าคือข้อใด?", a: "More beautiful", o: ["Beautifuler", "The most beautiful", "More beautiful", "Very beautiful"]},
-                {q: "วาฬ (Whale) เป็นสัตว์ที่ 'ใหญ่ที่สุด' ในมหาสมุทร ใช้คำใด?", a: "The biggest", o: ["The tallest", "The biggest", "The smallest", "Bigger"]}
+                {q: "คำว่า 'กิน' ในรูปอดีต คือคำใด?", a: "Ate", o: ["Eat", "Ate", "Eated", "Eating"]},
+                {q: "ช่างยนต์ (Mechanic) ทำงานซ่อมอะไร?", a: "รถยนต์", o: ["คนไข้", "เครื่องบิน", "รถยนต์", "อาหาร"]},
+                {q: "สถานที่ใดที่มีอากาศร้อนและมีทรายมากที่สุด?", a: "Desert (ทะเลทราย)", o: ["Jungle", "Ocean", "Grassland", "Desert (ทะเลทราย)"]},
+                {q: "สัตว์กินเนื้อ (Carnivore) อาหารหลักของมันคืออะไร?", a: "Meat (เนื้อ)", o: ["Grass (หญ้า)", "Fruit (ผลไม้)", "Leaves (ใบไม้)", "Meat (เนื้อ)"]},
+                {q: "คำว่า Window มีสระคู่ ow ออกเสียงเหมือนสระอะไร?", a: "สระโอ", o: ["สระอาว", "สระโอ", "สระอู", "สระไอ"]}
             ]
         }
     ];
